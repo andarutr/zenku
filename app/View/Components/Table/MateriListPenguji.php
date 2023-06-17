@@ -24,8 +24,7 @@ class MateriListPenguji extends Component
      */
     public function render()
     {
-        $materi = VCard::orderByDesc('id_card')
-                        ->paginate(8);
+        $materi = VCard::orderByDesc('id_card')->get();
                         
         return view('components.table.materi-list-penguji', compact('materi'));
     }

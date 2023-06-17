@@ -25,7 +25,7 @@ class MenuList extends Component
      */
     public function render()
     {
-        $menus = VMenu::orderByDesc('id_menu')->paginate(5);
+        $menus = VMenu::all();
 
         return view('components.table.menu-list', compact('menus'));
     }

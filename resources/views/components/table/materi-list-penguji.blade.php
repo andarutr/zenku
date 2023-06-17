@@ -31,7 +31,7 @@
                     @endif
                 </td>
                 <td>
-                    <a href="/penguji/materi/show/{{ $mtr->id_card }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                    <a href="/penguji/materi/{{ $mtr->id_card }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
                     <a href="/penguji/materi/update/{{ $mtr->id_card }}" class="btn btn-success" onclick="return confirm('Yakin ingin memperbarui status?')"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>

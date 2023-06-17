@@ -24,7 +24,7 @@ class MateriList extends Component
      */
     public function render()
     {
-        $materi = VCard::get();
+        $materi = VCard::all();
 
         return view('components.table.materi-list', compact('materi'));
     }

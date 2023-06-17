@@ -11,7 +11,8 @@
             <th>Email</th>
             <th>Whatsapp</th>
             <th>Role</th>
-            <th>Action</th>
+            <th colspan="2">Action</th>
+            <th style="display:none"></th>
           </tr>
         </thead>
         <tbody>
@@ -26,11 +27,14 @@
                 <td>{{ $user->whatsapp }}</td>
                 <td>{{ $user->role }}</td>
                 <td>
-                    <a href="{{ route('admin.account.edit', ['account' => $user->id]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>&nbsp;
+                  <a href="{{ route('admin.account.edit', ['account' => $user->id]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>&nbsp;
+                </td>
+                <td>
                   <form action="{{ route('admin.account.destroy', ['account' => $user->id]) }}" method="POST">@csrf @method('delete')
                     <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Yakin ingin menghapus akun ini ?')"><i class="fas fa-trash"></i></button>
                   </form>
                 </td>
+                <td style="display:none"></td>
             </tr>
             @endif
             @endforeach
@@ -38,4 +42,3 @@
       </table>
     </div>
   </div>
-  {{ $users->links() }}

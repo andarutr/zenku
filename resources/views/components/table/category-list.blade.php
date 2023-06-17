@@ -9,6 +9,7 @@
             <th>No</th>
             <th style="width: 80%">Kategori</th>
             <th colspan="2" style="width: 10%">Action</th>
+            <th style="display: none;"></th>
           </tr>
         </thead>
         <tbody>
@@ -24,10 +25,10 @@
                     <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Yakin ingin menghapus kategori ?')"><i class="fas fa-trash"></i></button>
                   </form>
                 </td>
+                <td style="display: none;"></td>
             </tr>
             @endforeach
         </tbody>
       </table>
     </div>
   </div>
-  {{ $categories->links() }}

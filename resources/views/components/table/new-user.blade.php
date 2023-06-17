@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">Pengguna Baru</h6>
-        <a class="m-0 float-right btn btn-danger btn-sm" href="/admin/data-pengguna">Selengkapnya <i
+        <a class="m-0 float-right btn btn-danger btn-sm" href="/admin/account">Selengkapnya <i
                 class="fas fa-chevron-right"></i></a>
     </div>
     <div class="table-responsive">

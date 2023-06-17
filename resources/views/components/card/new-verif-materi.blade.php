@@ -4,11 +4,11 @@
             <img src="/img/materi/{{ $mat->picture_card }}" class="card-img-top" style="border-radius: 25px 25px 10px 10px">
             <div class="card-body">
                 <h5 class="card-title">
-                    <a href="/penguji/materi/show/{{ $mat->id_card }}">{{ $mat->title_card  }}</a>
+                    <a href="/penguji/materi/{{ $mat->id_card }}">{{ $mat->title_card  }}</a>
                     @if($mat->is_active == 'active')<small><i class="fas fa-check-circle"></i></small>@endif
                 </h5>
                 <p class="card-text">{{ $mat->name }}</p>
-                <a href="/penguji/materi/show/{{ $mat->id_card }}" class="btn btn-primary">Detail</a>
+                <a href="/penguji/materi/{{ $mat->id_card }}" class="btn btn-primary">Detail</a>
             </div>
         </div>
     </div>

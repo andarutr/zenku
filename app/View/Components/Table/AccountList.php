@@ -24,7 +24,7 @@ class AccountList extends Component
      */
     public function render()
     {
-        $users = VUser::paginate(10);
+        $users = VUser::get();
         return view('components.table.account-list', compact('users'));
     }
 }

@@ -1,2 +1,68 @@
-# zenku
-Untuk Keperluan Skripsi
+# ZENKU
+<p align="center">
+<img src="./public/img/zenku.png" width="150" />
+</p>
+
+## Deskripsi
+Zenku adalah website sosial media pembelajaran yang dibuat untuk mempermudah siswa dalam mengulas materi yang telah diajarkan oleh guru sebelumnya. Aplikasi ini memiliki fitur seperti sosial media pada umumnya : like dan comment. Selain itu penulis memberikan fitur tambahan seperti forum diskusi antar guru dengan siswa.
+
+## Role 
+- Admin [1]
+- Guru [2]
+- Siswa [3]
+- Penguji [4]
+
+## Flow
+### Admin
+Admin dapat mengakses fitur berikut :
+- Dashboard
+- Kategori : CRUD pada kategori materi
+- Materi : hanya dapat melihat dan menghapus 
+- Like : hanya dapat melihat
+- Role : CRUD role akses
+- Komentar : dapat melihat dan menghapus (bila diperlukan)
+- Activity : Melihat aktifitas akun dan clear all data (bila diperlukan)
+- Menu Management : CRUD menu yang dapat diakses oleh role
+- Feedback : dapat melihat dan menghapus
+- Account : CRUD pada tabel user
+
+### Guru
+Guru dapat mengakses fitur berikut :
+- Dashboard
+- Materi : CRUD pada tabel materi
+- Like : melihat like berdasarkan materi yang ia buat
+- Komentar : melihat komentar berdasarkan materi yang ia buat
+- Forum : CRUD pada tabel forum
+
+### Penguji
+Penguji dapat mengakses fitur berikut :
+- Dashboard
+- Materi : melakukan approval pada materi
+
+### Siswa
+Siswa dapat mengakses fitur berikut :
+- Home
+- Materi : melihat semua materi atau materi berdasarkan kategori
+- Like : melakukan like dan menghapus like
+- Komentar : melakukan komentar dan menghapus komentar
+- Feedback : memberikan feedback
+- Forum : membuat forum dan membalas thread
+
+
+## Note
+Catatan sebelum menggunakan Zenku buat database dengan nama **zenku** dan ketik perintah berikut pada terminal kamu :
+ - `composer install`
+ - `cp .env.example .env`
+ - `php artisan key:generate`
+ - `php artisan migrate`
+ - `php artisan db:seed`
+
+## Tech Stack
+<img src="https://github.com/andarutr/programmer-iconify/blob/main/icons/framework/bootstrap.png?raw=true" width="50px" />&nbsp;
+<img src="https://github.com/andarutr/programmer-iconify/blob/main/icons/framework/laravel.png?raw=true" width="50px" />&nbsp;
+<img src="https://github.com/andarutr/programmer-iconify/blob/main/icons/database/mysql.png?raw=true" width="50px" />&nbsp;
+
+## Ingin Berkontribusi ?
+Silahkan fork telebih dahulu dan happy coding...
+
+By : <a href="http://zyandaru.xyz" target="_blank">Andaru Triadi</a>
