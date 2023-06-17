@@ -12,6 +12,12 @@ Zenku adalah website sosial media pembelajaran yang dibuat untuk mempermudah sis
 - Siswa [3]
 - Penguji [4]
 
+## Informasi Akun
+1. email: admin@zenku.com | pass: zenku123
+2. email: guru@zenku.com | pass: zenku123
+3. email: penguji@zenku.com | pass: zenku123
+3. email: andarutr@gmail.com | pass: zenku123
+
 ## Flow
 ### Admin
 Admin dapat mengakses fitur berikut :
