@@ -1,2 +1,2 @@
-# ZenKu
--
+# zenku
+Untuk Keperluan Skripsi

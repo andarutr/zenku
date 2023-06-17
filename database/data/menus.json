@@ -1,0 +1,149 @@
+[
+    {
+        "name_menu": "Dashboard",
+        "url_menu": "/admin/dashboard",
+        "icon_menu": "fa-tachometer-alt",
+        "id_role": "1",
+        "id_category_menu": "1"
+    },
+    {
+        "name_menu": "Dashboard",
+        "url_menu": "/guru/dashboard",
+        "icon_menu": "fa-tachometer-alt",
+        "id_role": "2",
+        "id_category_menu": "2"
+    },
+    {
+        "name_menu": "Dashboard",
+        "url_menu": "/penguji/dashboard",
+        "icon_menu": "fa-tachometer-alt",
+        "id_role": "4",
+        "id_category_menu": "3"
+    },
+    {
+        "name_menu": "Kategori",
+        "url_menu": "/admin/kategori",
+        "icon_menu": "fa-list-alt",
+        "id_role": "1",
+        "id_category_menu": "1"
+    },
+    {
+        "name_menu": "Materi",
+        "url_menu": "/guru/materi",
+        "icon_menu": "fa-graduation-cap",
+        "id_role": "2",
+        "id_category_menu": "2"
+    },
+    {
+        "name_menu": "Materi",
+        "url_menu": "/admin/materi",
+        "icon_menu": "fa-graduation-cap",
+        "id_role": "1",
+        "id_category_menu": "1"
+    },
+    {
+        "name_menu": "Materi",
+        "url_menu": "/penguji/materi",
+        "icon_menu": "fa-graduation-cap",
+        "id_role": "4",
+        "id_category_menu": "3"
+    },
+    {
+        "name_menu": "Home",
+        "url_menu": "/user",
+        "icon_menu": "fa-tachometer-alt",
+        "id_role": "3",
+        "id_category_menu": "4"
+    },
+    {
+        "name_menu": "Likes",
+        "url_menu": "/admin/like",
+        "icon_menu": "fa-heart",
+        "id_role": "1",
+        "id_category_menu": "1"
+    },
+    {
+        "name_menu": "Likes",
+        "url_menu": "/guru/like",
+        "icon_menu": "fa-heart",
+        "id_role": "2",
+        "id_category_menu": "2"
+    },
+    {
+        "name_menu": "Role Access",
+        "url_menu": "/admin/role",
+        "icon_menu": "fa-universal-access",
+        "id_role": "1",
+        "id_category_menu": "1"
+    },
+    {
+        "name_menu": "Komentar",
+        "url_menu": "/admin/comment",
+        "icon_menu": "fa-comment",
+        "id_role": "1",
+        "id_category_menu": "1"
+    },
+    {
+        "name_menu": "Komentar",
+        "url_menu": "/guru/comment",
+        "icon_menu": "fa-comment",
+        "id_role": "2",
+        "id_category_menu": "2"
+    },
+    {
+        "name_menu": "Aktifitas",
+        "url_menu": "/admin/aktifitas-akun",
+        "icon_menu": "fa-running",
+        "id_role": "1",
+        "id_category_menu": "1"
+    },
+    {
+        "name_menu": "Semua Materi",
+        "url_menu": "/user/materi",
+        "icon_menu": "fa-book-reader",
+        "id_role": "3",
+        "id_category_menu": "4"
+    },
+    {
+        "name_menu": "Menu Management",
+        "url_menu": "/admin/menu",
+        "icon_menu": "fa-list",
+        "id_role": "1",
+        "id_category_menu": "1"
+    },
+    {
+        "name_menu": "Feedback",
+        "url_menu": "/user/feedback",
+        "icon_menu": "fa-smile",
+        "id_role": "3",
+        "id_category_menu": "4"
+    },
+    {
+        "name_menu": "Feedback",
+        "url_menu": "/admin/feedback",
+        "icon_menu": "fa-smile",
+        "id_role": "1",
+        "id_category_menu": "1"
+    },
+    {
+        "name_menu": "Forum",
+        "url_menu": "/user/forum",
+        "icon_menu": "fa-comments",
+        "id_role": "3",
+        "id_category_menu": "4"
+    },
+    {   
+        "name_menu": "Forum",
+        "url_menu": "/guru/forum",
+        "icon_menu": "fa-comments",
+        "id_role": "2",
+        "id_category_menu": "2"
+    },
+    {   
+        "name_menu": "Account",
+        "url_menu": "/admin/account",
+        "icon_menu": "fa-users",
+        "id_role": "1",
+        "id_category_menu": "1"
+    }
+]

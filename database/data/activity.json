@@ -1,0 +1,164 @@
+[
+    {
+        "id_activity": "1",
+        "id_user": "1",
+        "activity": "Logout",
+        "created_at": "2023-04-03 15:17:59"
+    },
+    {
+        "id_activity": "2",
+        "id_user": "5",
+        "activity": "Logout",
+        "created_at": "2023-04-03 16:10:51"
+    },
+    {
+        "id_activity": "3",
+        "id_user": "1",
+        "activity": "Logout",
+        "created_at": "2023-04-03 16:11:58"
+    },
+    {
+        "id_activity": "4",
+        "id_user": "1",
+        "activity": "Login",
+        "created_at": "2023-04-03 21:20:25"
+    },
+    {
+        "id_activity": "5",
+        "id_user": "1",
+        "activity": "Menambahkan Menu",
+        "created_at": "2023-04-03 21:25:04"
+    },
+    {
+        "id_activity": "6",
+        "id_user": "1",
+        "activity": "Memperbarui Menu Testx",
+        "created_at": "2023-04-03 21:29:37"
+    },
+    {
+        "id_activity": "7",
+        "id_user": "1",
+        "activity": "Menambahkan Menu",
+        "created_at": "2023-04-03 21:34:26"
+    },
+    {
+        "id_activity": "8",
+        "id_user": "1",
+        "activity": "Menghapus Menu sds",
+        "created_at": "2023-04-03 21:34:43"
+    },
+    {
+        "id_activity": "9",
+        "id_user": "1",
+        "activity": "Menambahkan Menu Tester",
+        "created_at": "2023-04-03 21:40:10"
+    },
+    {
+        "id_activity": "10",
+        "id_user": "1",
+        "activity": "Menghapus Komentar Andaru Triadi",
+        "created_at": "2023-04-03 21:50:11"
+    },
+    {
+        "id_activity": "11",
+        "id_user": "1",
+        "activity": "Menghapus Menu Tester",
+        "created_at": "2023-04-03 21:51:22"
+    },
+    {
+        "id_activity": "12",
+        "id_user": "6",
+        "activity": "Login",
+        "created_at": "2023-04-03 22:01:49"
+    },
+    {
+        "id_activity": "13",
+        "id_user": "1",
+        "activity": "Menghapus Materi - Zenius (Apa Itu Framework)",
+        "created_at": "2023-04-03 22:19:00"
+    },
+    {
+        "id_activity": "14",
+        "id_user": "6",
+        "activity": "Menambahkan Materi Apa itu Framework",
+        "created_at": "2023-04-03 22:24:39"
+    },
+    {
+        "id_activity": "15",
+        "id_user": "6",
+        "activity": "Memperbarui Materi Apa itu FrameworkX",
+        "created_at": "2023-04-03 22:40:21"
+    },
+    {
+        "id_activity": "16",
+        "id_user": "6",
+        "activity": "Menghapus Materi - Zenius (Apa itu FrameworkX)",
+        "created_at": "2023-04-03 22:41:10"
+    },
+    {
+        "id_activity": "17",
+        "id_user": "6",
+        "activity": "Logout",
+        "created_at": "2023-04-03 22:41:43"
+    },
+    {
+        "id_activity": "18",
+        "id_user": "4",
+        "activity": "Login",
+        "created_at": "2023-04-03 22:42:26"
+    },
+    {
+        "id_activity": "19",
+        "id_user": "4",
+        "activity": "Melakukan Approve Materi Belajar Efektif Ala Zenius",
+        "created_at": "2023-04-03 22:45:42"
+    },
+    {
+        "id_activity": "20",
+        "id_user": "4",
+        "activity": "Membatalkan Approve Materi Tips Mengatasi Stres Menjelang Ujian",
+        "created_at": "2023-04-03 22:46:38"
+    },
+    {
+        "id_activity": "21",
+        "id_user": "4",
+        "activity": "Logout",
+        "created_at": "2023-04-03 22:53:14"
+    },
+    {
+        "id_activity": "22",
+        "id_user": "5",
+        "activity": "Login",
+        "created_at": "2023-04-03 22:53:26"
+    },
+    {
+        "id_activity": "23",
+        "id_user": "5",
+        "activity": "Menyukai Materi Belajar Efektif Ala Zenius",
+        "created_at": "2023-04-03 22:59:37"
+    },
+    {
+        "id_activity": "24",
+        "id_user": "5",
+        "activity": "Memberikan Komentar Pada Materi Dasar Dasar Pemrograman",
+        "created_at": "2023-04-03 23:02:37"
+    },
+    {
+        "id_activity": "25",
+        "id_user": "5",
+        "activity": "Menghapus Komentar Pada Materi Belajar Efektif Ala Zenius",
+        "created_at": "2023-04-03 23:05:22"
+    },
+    {
+        "id_activity": "26",
+        "id_user": "5",
+        "activity": "Menyukai Materi Tips Belajar Bahasa Inggris Jaman Now",
+        "created_at": "2023-04-03 23:06:08"
+    },
+    {
+        "id_activity": "27",
+        "id_user": "5",
+        "activity": "Menghapus Like Pada Materi Tips Belajar Bahasa Inggris Jaman Now",
+        "created_at": "2023-04-03 23:10:04"
+    }
+]
