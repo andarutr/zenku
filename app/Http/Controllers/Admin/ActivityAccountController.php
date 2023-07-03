@@ -14,7 +14,7 @@ class ActivityAccountController extends Controller
         return view('pages.admin.account.activity', compact('menu'));
     }
 
-    public function destroy()
+    public function destroy($aktifitas_akun)
     {
         Activity::truncate();
 

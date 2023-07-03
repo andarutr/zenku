@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FeedbackController extends Controller
 {
-    public function create()
+    public function index()
     {
         $menu = 'Feedback';
         return view('pages.user.feedback.list', compact('menu'));

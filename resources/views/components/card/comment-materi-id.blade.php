@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-1 col-sm-4"><img src="/img/profile/{{ Auth::user()->picture }}" class="img-fluid rounded-circle" width="50"></div>
             <div class="col-lg-10">
-            <form action="{{ route('user.comment.store', ['id_card'=> $materi->id_card]) }}" method="POST">@csrf
+            <form action="{{ route('user.comment.store', $materi->id_card) }}" method="POST">@csrf
                 <div class="form-row">
                     <div class="col-lg-8 col-sm-12">
                         <div class="form-group">

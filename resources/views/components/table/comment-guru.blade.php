@@ -27,7 +27,7 @@
                 <td>{{ $comment->comment }}</td>
                 <td>{{ $comment->created_at }}</td>
                 <td>
-                    <a href="{{ route('guru.comment.show', ['id_comment' => $comment->id_comment]) }}" class="btn btn-md btn-primary"><i class="fas fa-eye"></i></a>
+                    <a href="{{ route('guru.komentar.show', $comment->id_comment) }}" class="btn btn-md btn-primary"><i class="fas fa-eye"></i></a>
                 </td>
             </tr>
             @endforeach

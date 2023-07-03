@@ -12,7 +12,8 @@
                 <th>Materi</th>
                 <th>Komentar</th>
                 <th>Dibuat</th>
-                <th>Action</th>
+                <th colspan="2">Action</th>
+                <td style="display: none;"></td>
               </tr>
             </thead>
             <tbody>
@@ -28,11 +29,14 @@
                     <td>{{ $comment->comment }}</td>
                     <td>{{ \Carbon\Carbon::parse($comment->created_at)->format('d F Y H:i') }}</td>
                     <td>
-                      <a href="{{ route('admin.comment.show', ['id_comment' => $comment->id_comment]) }}" class="btn btn-md btn-primary"><i class="fas fa-eye"></i></a>
-                      <form action="{{ route('admin.comment.destroy', ['id_comment' => $comment->id_comment]) }}" method="POST">@csrf @method('delete')
+                      <a href="{{ route('admin.komentar.show', $comment->id_comment) }}" class="btn btn-md btn-primary"><i class="fas fa-eye"></i></a>
+                    </td>
+                    <td>
+                      <form action="{{ route('admin.komentar.destroy', $comment->id_comment) }}" method="POST">@csrf @method('delete')
                         <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Yakin ingin menghapus komentar ?')"><i class="fas fa-trash"></i></button>
                       </form>
                     </td>
+                    <td style="display: none;"></td>  
                 </tr>
                 @endforeach
             </tbody>

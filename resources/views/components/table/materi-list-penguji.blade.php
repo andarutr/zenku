@@ -10,7 +10,8 @@
                 <th>Judul</th>
                 <th>Author</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th colspan="2">Action</th>
+                <td style="display: none;"></td>
             </tr>
         </thead>
         <tbody>
@@ -32,8 +33,13 @@
                 </td>
                 <td>
                     <a href="/penguji/materi/{{ $mtr->id_card }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
-                    <a href="/penguji/materi/update/{{ $mtr->id_card }}" class="btn btn-success" onclick="return confirm('Yakin ingin memperbarui status?')"><i class="fas fa-edit"></i></a>
                 </td>
+                <td>
+                    <form action="{{ route('penguji.materi.update', $mtr->id_card) }}" method="POST">@csrf @method('put')
+                        <button class="btn btn-success" onclick="return confirm('Yakin ingin memperbarui status?')"><i class="fas fa-edit"></i></button>
+                    </form>
+                </td>
+                <td style="display: none;"></td>
             </tr>
             @endforeach
         </tbody>

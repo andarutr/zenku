@@ -11,7 +11,7 @@ class CommentController extends Controller
     public function index()
     {
         $menu = 'Komentar';
-        return view('pages.admin.comment.list', compact('menu'));
+        return view('pages.admin.comment.index', compact('menu'));
     }
     
     public function show($id_comment)
@@ -28,6 +28,6 @@ class CommentController extends Controller
         \Record::track('Menghapus Komentar '.$comment->name);
 
         Comment::where('id_comment', $id_comment)->delete();
-        return redirect()->route('admin.comment.index')->withToastSuccess('Berhasil menghapus komentar!');
+        return redirect()->route('admin.komentar.index')->withToastSuccess('Berhasil menghapus komentar!');
     }
 }

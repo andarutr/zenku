@@ -33,10 +33,10 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('admin.materi.show', ['id_card' => $mtr->id_card]) }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                        <a href="{{ route('admin.materi.show', $mtr->id_card) }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
                     </td>
                     <td>
-                        <form action="{{ route('admin.materi.destroy', ['id_card' => $mtr->id_card]) }}" method="POST">@csrf @method('delete')
+                        <form action="{{ route('admin.materi.destroy', $mtr->id_card) }}" method="POST">@csrf @method('delete')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')"><i class="fas fa-trash"></i></button>
                         </form>
                     </td>

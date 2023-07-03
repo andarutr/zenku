@@ -19,42 +19,17 @@ use App\Http\Controllers\Global\ChangePasswordController as ChangePassword;
 Route::middleware('isAdmin')->prefix('admin')->name('admin.')->group(function(){
 	Route::redirect('/','/admin/dashboard');
 	Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
-	// Profile
-	Route::get('/profile', [Profile::class, 'index'])->name('profile.index');
-	Route::post('/profile', [Profile::class, 'update'])->name('profile.update');
-	// Ganti Password
-	Route::get('/ganti-password', [ChangePassword::class, 'index'])->name('ganti_password.index');
-	Route::post('/ganti-password', [ChangePassword::class, 'update'])->name('ganti_password.update');
-	// Kategori
+	Route::resource('profile', Profile::class);
+	Route::resource('ganti-password', ChangePassword::class);
 	Route::resource('kategori', Category::class);
-	// Menu
 	Route::resource('menu', Menu::class);
-	// Role
 	Route::resource('role', Role::class);
-	// Aktifitas Akun
-	Route::get('/aktifitas-akun', [Activity::class, 'index'])->name('activity.index');
-	Route::get('/aktifitas-akun/destroy', [Activity::class, 'destroy'])->name('activity.destroy');
-	// Materi
-	Route::prefix('materi')->group(function(){
-		Route::get('/', [Materi::class, 'index'])->name('materi.index');
-		Route::get('/{id_card}', [Materi::class, 'show'])->name('materi.show');
-		Route::delete('/{id_card}', [Materi::class, 'destroy'])->name('materi.destroy');
-	});
-	// Like
-	Route::get('/like', [Like::class, 'index'])->name('like.index');
-	// Comment
-	Route::prefix('komentar')->group(function(){
-		Route::get('/', [Comment::class, 'index'])->name('comment.index');
-		Route::get('/{id_comment}', [Comment::class, 'show'])->name('comment.show');
-		Route::delete('/{id_comment}', [Comment::class, 'destroy'])->name('comment.destroy');
-	});
-	// Feedback
-	Route::prefix('feedback')->group(function(){
-		Route::get('/', [Feedback::class, 'index'])->name('feedback.index');
-		Route::get('/hapus', [Feedback::class, 'destroy_all'])->name('feedback.destroy_all');
-		Route::delete('/{id_feedback}', [Feedback::class, 'destroy'])->name('feedback.destroy');
-	});
-	// Account
+	Route::resource('aktifitas-akun', Activity::class);
+	Route::resource('materi', Materi::class);
+	Route::resource('like', Like::class);
+	Route::resource('komentar', Comment::class);
+	Route::resource('feedback', Feedback::class);
+	Route::get('/feedback/hapus/{id_feedback}', [Feedback::class, 'destroy_all'])->name('feedback.destroy_all');
 	Route::resource('account', Account::class);
 	Route::get('/ganti-password/akun/{id}', [Account::class,'ganti_password']);
 	Route::post('/ganti-password/akun/{id}', [Account::class,'proses_ganti_password']);

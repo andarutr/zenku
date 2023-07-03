@@ -28,7 +28,7 @@
                         <td>{{ \Carbon\Carbon::parse($feed->created_at)->format('d F Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($feed->updated_at)->format('d F Y') }}</td>
                         <td>
-                            <form action="{{ route('admin.feedback.destroy', ['id_feedback' => $feed->id_feedback])}}" method="POST">@csrf @method('delete')
+                            <form action="{{ route('admin.feedback.destroy', $feed->id_feedback) }}" method="POST">@csrf @method('delete')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus feedback?')"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>

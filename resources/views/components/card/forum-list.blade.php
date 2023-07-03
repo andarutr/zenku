@@ -6,7 +6,9 @@
                 <h4>{{ $frm->title_forum }} 
                     @if(Auth::user()->id_role === 2)
                     <small>
-                        <a href="/guru/forum/destroy/{{ $frm->id_forum }}" class="badge bg-danger text-white" onclick="return confirm('Yakin ingin menghapus diskusi ini?')"><i class="fas fa-trash"></i></a>
+                        <form action="{{ route('guru.forum.destroy', $frm->id_forum) }}" method="POST">@csrf @method('delete')
+                            <button class="badge bg-danger text-white" onclick="return confirm('Yakin ingin menghapus diskusi ini?')"><i class="fas fa-trash"></i></button>
+                        </form>
                     </small>
                     @endif
                 </h4>

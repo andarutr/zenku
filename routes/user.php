@@ -14,13 +14,8 @@ use App\Http\Controllers\Global\ChangePasswordController as ChangePassword;
 
 Route::middleware('isUser')->prefix('/user')->name('user.')->group(function(){
 	Route::get('/', [Homepage::class, 'index'])->name('index');
-	// Profile
-	Route::get('/profile', [Profile::class, 'index'])->name('profile.index');
-	Route::post('/profile', [Profile::class, 'update'])->name('profile.update');
-	// Ganti Password
-	Route::get('/ganti-password', [ChangePassword::class, 'index'])->name('ganti_password.index');
-	Route::post('/ganti-password', [ChangePassword::class, 'update'])->name('ganti_password.update');
-	// Aktifitas Akun
+	Route::resource('profile', Profile::class);
+	Route::resource('materi', Materi::class);
 	Route::get('/aktifitas-akun', [Activity::class, 'index'])->name('activity.index');
 	// Like
 	Route::get('/like', [Like::class, 'index'])->name('like.index');
@@ -41,14 +36,8 @@ Route::middleware('isUser')->prefix('/user')->name('user.')->group(function(){
 		Route::put('/{id_comment}', [Comment::class, 'update'])->name('comment.update');
 		Route::delete('/{id_comment}', [Comment::class, 'destroy'])->name('comment.destroy');
 	});
-	// Feedback
-	Route::get('/feedback', [Feedback::class, 'create'])->name('feedback.index');
-	Route::post('/feedback', [Feedback::class, 'store'])->name('feedback.store');
-	// Forum
-	Route::get('/forum', [Forum::class, 'index'])->name('forum.index');
-	Route::get('/forum/create', [Forum::class, 'create'])->name('forum.create');
-	Route::post('/forum/store', [Forum::class, 'store'])->name('forum.store');
+	Route::resource('feedback', Feedback::class);
+	Route::resource('forum', Forum::class);
 	Route::get('/forum/balas/{id}/{url}', [Reply::class, 'create'])->name('forum.reply.create');
 	Route::post('/forum/balas/{id}/{url}', [Reply::class, 'store'])->name('forum.reply.store');
-	Route::get('/forum/{url}', [Forum::class, 'show'])->name('forum.show');
 });

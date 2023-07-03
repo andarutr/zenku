@@ -15,7 +15,7 @@ class ProfileController extends Controller
         return view('pages.global.profile', compact('menu'));
     }
     
-    public function update(Request $req)
+    public function update(Request $req, $id_user)
     {
         if($req->hasFile('picture'))
         {

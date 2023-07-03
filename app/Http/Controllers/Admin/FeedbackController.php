@@ -11,10 +11,10 @@ class FeedbackController extends Controller
     public function index()
     {
         $menu = 'Feedback';
-        return view('pages.admin.feedback.list', compact('menu'));
+        return view('pages.admin.feedback.index', compact('menu'));
     }
 
-    public function destroy_all()
+    public function destroy_all($id_feedback)
     {
         Feedback::truncate();
         return redirect()->back()->withToastSuccess('Berhasil menghapus feedback!');

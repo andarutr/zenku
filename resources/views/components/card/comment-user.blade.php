@@ -18,11 +18,11 @@
                 </tr>
                 <tr>
                     <th>CreatedAt</th>
-                    <td>{{ $user->created_at }}</td>
+                    <td>{{ \Carbon\Carbon::parse($user->created_at)->format('d F Y, H:i') }}</td>
                 </tr>
                 <tr>
                     <th>UpdatedAt</th>
-                    <td>{{ $user->updated_at }}</td>
+                    <td>{{ \Carbon\Carbon::parse($user->updated_at)->format('d F Y, H:i') }}</td>
                 </tr>
             </thead>
         </table>

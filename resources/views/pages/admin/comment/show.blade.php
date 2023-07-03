@@ -5,7 +5,7 @@
 @section('content')
 <div class="row mb-3">
     <div class="col-lg-12">
-        <x-button url="{{ route('admin.comment.index') }}" type="success" text="Kembali" />
+        <x-button url="{{ route('admin.komentar.index') }}" type="success" text="Kembali" />
     </div>    
     <div class="col-lg-4">
         <x-card.comment-user id="{{$id_comment}}" />
