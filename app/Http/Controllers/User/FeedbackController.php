@@ -12,7 +12,7 @@ class FeedbackController extends Controller
     public function index()
     {
         $menu = 'Feedback';
-        return view('pages.user.feedback.list', compact('menu'));
+        return view('pages.user.feedback.index', compact('menu'));
     }
 
     public function store(Request $req)

@@ -11,7 +11,7 @@ class MateriController extends Controller
     public function index()
     {
         $menu = 'Semua Materi';
-        return view('pages.user.materi.list', compact('menu'));
+        return view('pages.user.materi.index', compact('menu'));
     }
 
     public function search(Request $req)

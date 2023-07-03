@@ -10,7 +10,7 @@ class CommentController extends Controller
     public function index()
     {
         $menu = 'Komentar';
-        return view('pages.guru.comment.list', compact('menu'));
+        return view('pages.guru.comment.index', compact('menu'));
     }
 
     public function show($id_comment)

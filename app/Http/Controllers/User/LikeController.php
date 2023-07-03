@@ -13,7 +13,7 @@ class LikeController extends Controller
     public function index()
     {
         $menu = 'Like';
-        return view('pages.user.like.list', compact('menu'));
+        return view('pages.user.like.index', compact('menu'));
     }
 
     public function store($id_card)

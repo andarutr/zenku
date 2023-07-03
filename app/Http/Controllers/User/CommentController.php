@@ -13,7 +13,7 @@ class CommentController extends Controller
     public function index()
     {
         $menu = 'Comment';
-        return view('pages.user.comment.list', compact('menu'));
+        return view('pages.user.comment.index', compact('menu'));
     }
 
     public function store(Request $req, $id_card)
