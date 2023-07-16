@@ -8,10 +8,10 @@
       <h5>{{ Auth::user()->name }}</h5>
       <p>{{ Auth::user()->email }}</p>
     </center>
+    @if(Auth::user()->id_role === 3)
     <div class="sidebar-heading mt-3">
         Kategori Materi
     </div>
-    @if(Auth::user()->id_role === 3)
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
         aria-expanded="true" aria-controls="collapseBootstrap">
