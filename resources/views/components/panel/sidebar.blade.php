@@ -9,16 +9,8 @@
       <p>{{ Auth::user()->email }}</p>
     </center>
     <div class="sidebar-heading mt-3">
-        Fitur
+        Kategori Materi
     </div>
-  
-    @foreach($menus as $menu)
-    <li class="nav-item">
-        <a class="nav-link" href="{{ $menu->url_menu }}">
-            <i class="fas fa-fw {{ $menu->icon_menu }}"></i>
-            <span>{{ $menu->name_menu }}</span></a>
-    </li>
-    @endforeach
     @if(Auth::user()->id_role === 3)
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
@@ -35,6 +27,17 @@
       </div>
     </li>
     @endif
+    <div class="sidebar-heading mt-3">
+        Fitur
+    </div>
+    @foreach($menus as $menu)
+    <li class="nav-item">
+        <a class="nav-link" href="{{ $menu->url_menu }}">
+            <i class="fas fa-fw {{ $menu->icon_menu }}"></i>
+            <span>{{ $menu->name_menu }}</span></a>
+    </li>
+    @endforeach
+    
     <hr class="sidebar-divider">
   
 </ul>

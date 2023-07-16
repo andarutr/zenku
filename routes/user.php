@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\LikeController as Like;
 use App\Http\Controllers\User\ReplyController as Reply;
+use App\Http\Controllers\Global\ChatController as Chat;
 use App\Http\Controllers\User\ForumController as Forum;
 use App\Http\Controllers\User\MateriController as Materi;
 use App\Http\Controllers\User\CommentController as Comment;
@@ -17,18 +18,13 @@ Route::middleware('isUser')->prefix('/user')->name('user.')->group(function(){
 	Route::resource('profile', Profile::class);
 	Route::resource('materi', Materi::class);
 	Route::get('/aktifitas-akun', [Activity::class, 'index'])->name('activity.index');
-	// Like
 	Route::get('/like', [Like::class, 'index'])->name('like.index');
 	Route::delete('/like/{id_like}', [Like::class, 'destroy'])->name('like.destroy');
 	Route::get('/like/materi/{id_card}', [Like::class, 'store'])->name('like.store');
-	// Kategori Materi
 	Route::get('/kategori/{id}/{name_category}', [Materi::class, 'category'])->name('materi.category');
-
-	// Materi
 	Route::get('/materi', [Materi::class, 'index'])->name('materi.index');
 	Route::get('/materi/cari', [Materi::class, 'search'])->name('materi.search');
 	Route::get('/materi/{id_card}/{url_card}', [Materi::class, 'show'])->name('materi.show');
-	// Comment
 	Route::prefix('comment')->group(function(){
 		Route::get('/', [Comment::class, 'index'])->name('comment.index');
 		Route::post('/store/{id_card}', [Comment::class, 'store'])->name('comment.store');
@@ -40,4 +36,10 @@ Route::middleware('isUser')->prefix('/user')->name('user.')->group(function(){
 	Route::resource('forum', Forum::class);
 	Route::get('/forum/balas/{id}/{url}', [Reply::class, 'create'])->name('forum.reply.create');
 	Route::post('/forum/balas/{id}/{url}', [Reply::class, 'store'])->name('forum.reply.store');
+	Route::get('/chat', [Chat::class, 'index']);
+	Route::post('/chat/store', [Chat::class, 'store_topic']);
+	Route::get('/chat/session/{session_chat}', [Chat::class, 'create_chat']);
+	Route::get('/chat/linked_session/{session_chat}', [Chat::class, 'create_linked_chat']);
+	Route::post('/chat/session/{session_chat}', [Chat::class, 'store_chat']);
+	Route::get('/chat/{name}/{session_chat}', [Chat::class, 'create_topic']);
 });

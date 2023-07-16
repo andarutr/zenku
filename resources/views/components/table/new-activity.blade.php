@@ -12,7 +12,7 @@
         </div>
         @endforeach
         <div class="card-footer text-center">
-            <a class="m-0 small text-primary card-link" href="{{ route('admin.activity.index') }}">View More <i
+            <a class="m-0 small text-primary card-link" href="/admin/aktifitas-akun">View More <i
                     class="fas fa-chevron-right"></i></a>
         </div>
     </div>
