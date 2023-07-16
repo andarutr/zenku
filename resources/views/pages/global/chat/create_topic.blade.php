@@ -6,12 +6,18 @@
 <div class="row">
     <a href="/{{ Request::segment(1) }}/chat" class="btn btn-success ml-3">Kembali</a>
     <div class="col-lg-12 text-center">
-        <img src="/img/profile/{{ $user->picture }}" class="img-fluid rounded-circle" width="100" height="100">
+        <span class="badge bg-warning text-white p-1" style="font-size: 15px">{{ $user->name_role }}</span>&nbsp;
+        <img src="/img/profile/{{ $user->picture }}" class="img-fluid rounded-circle" width="100" height="100">&nbsp;
+        @if(Cache::has('user-is-online-' . $user->id))
+        <span class="badge bg-primary text-white">Online</span> 
+        @else
+        <span class="badge bg-danger text-white">Offline</span> 
+        @endif
         <h3 class="mt-2">{{ $user->name }}</h3>
         <h4 class="mt-2">Session Chat : {{ $session_chat }}</h3>
     </div>
 </div>
-<div class="row">
+<div class="row mb-5">
     <div class="col-lg-8 mx-auto">
         <div class="card shadow mt-3">
             <div class="card-body">
