@@ -1,5 +1,6 @@
 <div class="card">
     <div class="card-body">
+        <a href="/zendoc/zenku(forum).pdf" class="btn btn-sm btn-success mb-3">panduan penggunaan</a>
         <div class="card">
             <div class="card-body p-5">
                 @foreach($forum as $frm)

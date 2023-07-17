@@ -5,7 +5,7 @@
 @section('content')
 <div class="row mb-5">
     <div class="col-lg-8 mx-auto">
-      <h3>Recent Chat</h3>
+      <h3>Recent Chat</h3><a href="/zendoc/zenku(chat).pdf" class="badge bg-success text-white">panduan penggunaan</a>
     </div>
     @foreach($chat_from_me as $chat)
     @php

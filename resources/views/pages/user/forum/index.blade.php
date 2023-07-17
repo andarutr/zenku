@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 
-@section('title', 'Forum')
+@section('title', 'Zenku - Forum')
 
 @section('content')
 <div class="row mb-3">
