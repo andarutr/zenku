@@ -49,7 +49,7 @@
             </div>
             <div class="center-align m-t-20 db">
                 Tidak memiliki akun? <a href="{{ route('register') }}">Daftar!</a><hr/>
-                <a href="/zendoc/Dokumentasi Website Zenku (Authentication).pdf">Petunjuk Login</a>
+                <a href="/zendoc/zenku(authentication).pdf">Petunjuk Login</a>
             </div>
         </div>
     </div>

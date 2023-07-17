@@ -54,7 +54,7 @@
             </div>
             <div class="center-align m-t-20 db">
                 Sudah memiliki akun? <a href="{{ route('login') }}">Login!</a><hr/>
-                <a href="/zendoc/Dokumentasi Website Zenku (Authentication).pdf">Petunjuk Pendaftaran</a>
+                <a href="/zendoc/zenku(authentication).pdf">Petunjuk Pendaftaran</a>
             </div>
         </div>
     </div>

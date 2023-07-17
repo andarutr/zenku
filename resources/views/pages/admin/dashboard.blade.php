@@ -10,7 +10,7 @@
     <div class="col-xl-8 col-lg-7 mb-4">
         <x-table.new-user />
         <div class="alert alert-success mt-3">
-           Silahkan download petunjuk penggunaan akun (Admin) <a href="/zendoc/Dokumentasi Website Zenku (Admin).pdf" class="badge bg-warning text-white">disini</a>
+           Silahkan download petunjuk penggunaan akun (Admin) <a href="/zendoc/zenku(admin).pdf" class="badge bg-warning text-white">disini</a>
         </div>
     </div>
 

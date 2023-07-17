@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 
-@section('title', 'Admin - Profile')
+@section('title', 'Admin - Tambah Account')
 
 @section('content')
 <div class="row mb-3">
