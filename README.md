@@ -31,6 +31,7 @@ Admin dapat mengakses fitur berikut :
 - Menu Management : CRUD menu yang dapat diakses oleh role
 - Feedback : dapat melihat dan menghapus
 - Account : CRUD pada tabel user
+- Chat : chatting ke semua akun
 
 ### Guru
 Guru dapat mengakses fitur berikut :
@@ -39,11 +40,13 @@ Guru dapat mengakses fitur berikut :
 - Like : melihat like berdasarkan materi yang ia buat
 - Komentar : melihat komentar berdasarkan materi yang ia buat
 - Forum : CRUD pada tabel forum
+- Chat : chatting ke semua akun
 
 ### Penguji
 Penguji dapat mengakses fitur berikut :
 - Dashboard
 - Materi : melakukan approval pada materi
+- Chat : chatting ke semua akun
 
 ### Siswa
 Siswa dapat mengakses fitur berikut :
@@ -53,7 +56,7 @@ Siswa dapat mengakses fitur berikut :
 - Komentar : melakukan komentar dan menghapus komentar
 - Feedback : memberikan feedback
 - Forum : membuat forum dan membalas thread
-
+- Chat : chatting ke semua akun
 
 ## Note
 Catatan sebelum menggunakan Zenku buat database dengan nama **zenku** dan ketik perintah berikut pada terminal kamu :
