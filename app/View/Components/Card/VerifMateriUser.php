@@ -27,7 +27,7 @@ class VerifMateriUser extends Component
         $materi = VCard::where('is_active', 'active')
                         ->orderByDesc('id_card')
                         ->limit(8)->get();
-
+        
         return view('components.card.verif-materi-user', compact('materi'));
     }
 }

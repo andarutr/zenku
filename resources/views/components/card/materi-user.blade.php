@@ -9,7 +9,14 @@
                     @if($mat->is_active == 'active')<small><i class="fas fa-check-circle"></i></small>@endif
                 </h5>
                 <p class="card-text"><img src="/img/profile/{{ $mat->picture }}" class="img-fluid rounded-circle" width="25"> <a href="/bio/{{ str_replace(' ', '-', strtolower($mat->name)) }}" style="text-decoration: none; color:black">{{ $mat->name }}</a></p>
-                <a href="{{ route('user.like.store', ['id_card' => $mat->id_card]) }}" class="btn btn-md"><i class="fas fa-heart text-secondary"></i></a>
+                @php
+                    $likes = \DB::table('likes')->where(['id_card' => $mat->id_card,'id_user' => Auth::user()->id])->first();
+                @endphp
+                <a href="{{ route('user.like.store', ['id_card' => $mat->id_card]) }}" class="btn btn-md"><i class="fas fa-heart 
+                    @isset($likes)
+                    text-danger
+                    @endisset"></i></a>
+                
                 <a href="{{ route('user.materi.show', ['id_card' => $mat->id_card, 'url_card' => $mat->url_card]) }}" class="btn btn-md"><i class="fas fa-comment text-secondary"></i></a>
                 <a href="{{ route('user.materi.show', ['id_card' => $mat->id_card, 'url_card' => $mat->url_card]) }}" class="btn btn-primary"><i class="fas fa-book-reader"></i> Belajar</a>
             </div>
