@@ -29,8 +29,8 @@ class ProfileController extends Controller
                         'whatsapp' => $req->whatsapp,
                         'alamat' => $req->alamat,
                         'bio' => $req->bio,
-                        'id_provinsi' => $req->id_provinsi,
-                        'id_kota_administrasi' => $req->id_kota_administrasi,
+                        'provinsi' => $req->provinsi,
+                        'kota_administrasi' => $req->kota_administrasi,
                         'kode_pos' => $req->kode_pos,
                         'status_kenegaraan' => $req->status_kenegaraan,
                         'updated_at' => now()
@@ -43,8 +43,8 @@ class ProfileController extends Controller
                         'whatsapp' => $req->whatsapp,
                         'alamat' => $req->alamat,
                         'bio' => $req->bio,
-                        'id_provinsi' => $req->id_provinsi,
-                        'id_kota_administrasi' => $req->id_kota_administrasi,
+                        'provinsi' => $req->provinsi,
+                        'kota_administrasi' => $req->kota_administrasi,
                         'kode_pos' => $req->kode_pos,
                         'status_kenegaraan' => $req->status_kenegaraan,
                         'updated_at' => now()

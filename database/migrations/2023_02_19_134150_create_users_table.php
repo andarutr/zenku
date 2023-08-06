@@ -24,8 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('birthday', 25)->nullable();
             $table->string('whatsapp', 25)->nullable();
             $table->string('alamat', 255)->nullable();
-            $table->unsignedInteger('id_provinsi')->nullable();
-            $table->unsignedInteger('id_kota_administrasi')->nullable();
+            $table->string('provinsi', 50)->nullable();
+            $table->string('kota_administrasi', 50)->nullable();
             $table->integer('kode_pos')->nullable();
             $table->text('bio')->nullable();
             $table->string('status_kenegaraan', 25)->nullable();
@@ -34,8 +34,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->foreign('id_role')->references('id_role')->on('roles');
-            $table->foreign('id_provinsi')->references('id_provinsi')->on('provinsi');
-            $table->foreign('id_kota_administrasi')->references('id_kota_administrasi')->on('kota_administrasi');
         });
     }
 

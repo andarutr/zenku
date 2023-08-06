@@ -3,9 +3,7 @@
 namespace App\View\Components\Form;
 
 use App\Models\Views\VUser;
-use App\Models\Provinsi;
 use Illuminate\View\Component;
-use App\Models\KotaAdministrasi;
 use Illuminate\Support\Facades\Auth;
 
 class EditProfile extends Component
@@ -27,10 +25,7 @@ class EditProfile extends Component
      */
     public function render()
     {
-        $provinsi = Provinsi::all();
-        $kota_administrasi = KotaAdministrasi::all();
         $user = VUser::where('id', Auth::user()->id)->first();
-
-        return view('components.form.edit-profile', compact('provinsi','kota_administrasi','user'));
+        return view('components.form.edit-profile', compact('user'));
     }
 }

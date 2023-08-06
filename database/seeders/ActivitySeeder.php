@@ -20,7 +20,6 @@ class ActivitySeeder extends Seeder
         foreach($activity as $act)
         {
             \DB::table('activity')->insert([
-                'id_activity' => $act->id_activity,
                 'id_user' => $act->id_user,
                 'activity' => $act->activity,
                 'created_at' => $act->created_at

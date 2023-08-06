@@ -23,6 +23,8 @@ class CreateViewUsersTable extends Migration
             users.birthday,
             users.whatsapp,
             users.alamat,
+            users.provinsi,
+            users.kota_administrasi,
             users.bio,
             users.kode_pos,
             users.status_kenegaraan,
@@ -30,19 +32,7 @@ class CreateViewUsersTable extends Migration
             users.updated_at,
             (SELECT name_role FROM roles
                         WHERE roles.id_role = users.id_role
-                    ) AS role,
-            (SELECT id_provinsi FROM provinsi
-                WHERE provinsi.id_provinsi = users.id_provinsi
-            ) AS id_provinsi,
-            (SELECT name_provinsi FROM provinsi
-                WHERE provinsi.id_provinsi = users.id_provinsi
-            ) AS name_provinsi,
-            (SELECT name_kota_administrasi FROM kota_administrasi
-                WHERE kota_administrasi.id_kota_administrasi = users.id_kota_administrasi
-            ) AS name_kota_administrasi,
-            (SELECT id_kota_administrasi FROM kota_administrasi
-                WHERE kota_administrasi.id_kota_administrasi = users.id_kota_administrasi
-            ) AS id_kota_administrasi     
+                    ) AS role
         FROM users";
 
         \DB::statement($user_view);

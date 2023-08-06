@@ -16,8 +16,6 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             RoleSeeder::class,
-            ProvinsiSeeder::class,
-            KotaAdministrasiSeeder::class,
             UserSeeder::class,
             CategoryMenuSeeder::class,
             MenuSeeder::class,
