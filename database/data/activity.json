@@ -1,0 +1,32 @@
+[
+    {
+        "user_id": "5",
+        "activity": "Login",
+        "created_at": "2023-04-03 22:53:26"
+    },
+    {
+        "user_id": "5",
+        "activity": "Menyukai Materi Belajar Efektif Ala Zenius",
+        "created_at": "2023-04-03 22:59:37"
+    },
+    {
+        "user_id": "5",
+        "activity": "Memberikan Komentar Pada Materi Dasar Dasar Pemrograman",
+        "created_at": "2023-04-03 23:02:37"
+    },
+    {
+        "user_id": "5",
+        "activity": "Menghapus Komentar Pada Materi Belajar Efektif Ala Zenius",
+        "created_at": "2023-04-03 23:05:22"
+    },
+    {
+        "user_id": "5",
+        "activity": "Menyukai Materi Tips Belajar Bahasa Inggris Jaman Now",
+        "created_at": "2023-04-03 23:06:08"
+    },
+    {
+        "user_id": "5",
+        "activity": "Menghapus Like Pada Materi Tips Belajar Bahasa Inggris Jaman Now",
+        "created_at": "2023-04-03 23:10:04"
+    }
+]
