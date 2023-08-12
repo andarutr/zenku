@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use App\Models\Activity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -37,11 +38,11 @@ class AuthenticatedSessionController extends Controller
         // Record to Activity
         \Record::track('Login');
         
-        if(Auth::user()->id_role == 1){
+        if(Auth::user()->role->role == 'Admin'){
             return redirect('/admin/dashboard')->withSuccess('Selamat Datang '.Auth::user()->name);
-        }elseif(Auth::user()->id_role == 2){
+        }elseif(Auth::user()->role->role == 'Guru'){
             return redirect('/guru/dashboard')->withSuccess('Selamat Datang '.Auth::user()->name);
-        }elseif(Auth::user()->id_role == 3){
+        }elseif(Auth::user()->role->role == 'User'){
             return redirect('/user')->withSuccess('Selamat Datang User!');
         }else{
             return redirect('/penguji/dashboard')->withSuccess('Selamat Datang '.Auth::user()->name);

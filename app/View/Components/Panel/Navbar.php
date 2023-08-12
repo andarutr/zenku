@@ -27,27 +27,27 @@ class Navbar extends Component
     public function render()
     {
         $data['like_count'] = \DB::table('likes')
-                                ->where('id_user', Auth::user()->id)
+                                ->where('user_id', Auth::user()->id)
                                 ->count();
 
         $data['comment_count'] = \DB::table('comments')
-                                ->where('id_user', Auth::user()->id)
+                                ->where('user_id', Auth::user()->id)
                                 ->count();
 
-        $data['user'] = User::where('id', Auth::user()->id)
-                            ->join('roles','roles.id_role','=','users.id_role')
+        $data['user'] = User::where('users.id', Auth::user()->id)
+                            ->join('roles','roles.id','=','users.role_id')
                             ->first();
 
-        $data['chat_from_me'] = Chat::where('chats.id_user', Auth::user()->id)
-                                    ->where('messages.id_user','!=', Auth::user()->id)
+        $data['chat_from_me'] = Chat::where('chats.user_id', Auth::user()->id)
+                                    ->where('messages.user_id','!=', Auth::user()->id)
                                     ->orderBy('messages.created_at','desc')
                                     ->join('users','users.id','=','chats.linked_user')
                                     ->join('messages','messages.session_chat','=','chats.session_chat')
                                     ->select('users.name','users.picture','messages.*')
                                     ->limit(2)->get();
         $data['chat_from_other'] = Chat::where('chats.linked_user', Auth::user()->id)
-                                        ->where('messages.id_user','!=', Auth::user()->id)
-                                        ->join('users','users.id','=','chats.id_user')
+                                        ->where('messages.user_id','!=', Auth::user()->id)
+                                        ->join('users','users.id','=','chats.user_id')
                                         ->join('messages','messages.session_chat','=','chats.session_chat')
                                         ->orderBy('messages.created_at','desc')
                                         ->select('users.name','users.picture','messages.*')

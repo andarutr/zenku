@@ -23,7 +23,7 @@ class isGuru
         if(!Auth::check()){
             return redirect()->route('login');
         }else{
-            if(Auth::user()->id_role !== 2){
+            if(Auth::user()->role->role !== 'Guru'){
                 echo "Kamu bukan guru!"; die;
             }else{
                 Cache::put('user-is-online-'. Auth::user()->id, true);

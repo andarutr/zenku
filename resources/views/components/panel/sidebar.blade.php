@@ -8,7 +8,7 @@
       <h5>{{ Auth::user()->name }}</h5>
       <p>{{ Auth::user()->email }}</p>
     </center>
-    @if(Auth::user()->id_role === 3)
+    @if(Auth::user()->role->role === 'User')
     <div class="sidebar-heading mt-3">
         Kategori Materi
     </div>

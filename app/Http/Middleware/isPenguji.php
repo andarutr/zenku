@@ -22,7 +22,7 @@ class isPenguji
         if(!Auth::check()){
             return redirect()->route('login');
         }else{
-            if(Auth::user()->id_role !== 4){
+            if(Auth::user()->role->role !== 'Penguji'){
                 echo "Kamu bukan penguji!"; die;
             }else{
                 Cache::put('user-is-online-'. Auth::user()->id, true);

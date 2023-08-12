@@ -24,7 +24,7 @@ class isAdmin
         {
             return redirect()->route('login');
         }else{
-            if(Auth::user()->id_role !== 1){
+            if(Auth::user()->role->role !== 'Admin'){
                 echo "Kamu bukan admin!"; die;
             }else{
                 Cache::put('user-is-online-'. Auth::user()->id, true);
