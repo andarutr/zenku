@@ -24,10 +24,10 @@ class VerifMateriUser extends Component
      */
     public function render()
     {
-        $materi = Card::where('is_active', 'active')
+        $data['materi'] = Card::where('is_active', 'active')
                         ->orderByDesc('id')
                         ->limit(8)->get();
         
-        return view('components.card.verif-materi-user', compact('materi'));
+        return view('components.card.verif-materi-user', $data);
     }
 }

@@ -25,10 +25,10 @@ class CommentGuru extends Component
      */
     public function render()
     {
-        $comments = VComment::where('author', Auth::user()->name)
+        $data['comments'] = VComment::where('author', Auth::user()->name)
                         ->orderByDesc('id_comment')
                         ->get();
 
-        return view('components.table.comment-guru', compact('comments'));
+        return view('components.table.comment-guru', $data);
     }
 }

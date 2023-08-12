@@ -14,30 +14,31 @@ class ChatController extends Controller
 {
     public function index()
     {
-        $menu = 'Chat';
-        $users = User::all();
-        $chat_from_me = Chat::orderByDesc('id_chat')
+        $data['menu'] = 'Chat';
+        $data['users'] = User::all();
+        $data['chat_from_me'] = Chat::orderByDesc('id_chat')
                             ->where('id_user', Auth::user()->id)
                             ->join('users','users.id','=','chats.linked_user')
                             ->select('chats.*','users.name','users.picture','users.id as is_online')
                             ->get();
-        $chat_from_other = Chat::orderByDesc('id_chat')
+        $data['chat_from_other'] = Chat::orderByDesc('id_chat')
                                 ->where('linked_user', Auth::user()->id)
                                 ->join('users','users.id','=','chats.id_user')
                                 ->select('chats.*','users.name','users.picture','users.id as is_online')
                                 ->get();
                                 
-        return view('pages.global.chat.index', compact('menu','users','chat_from_me','chat_from_other'));
+        return view('pages.global.chat.index', $data);
     }
 
     public function create_topic(Request $req, $name, $session_chat)
     {
-        $menu = 'Chat';
-        $user = User::where('name', $name)
+        $data['menu'] = 'Chat';
+        $data['user'] = User::where('name', $name)
                     ->join('roles','roles.id_role','=','users.id_role')
                     ->first();
+        $data['session_chat'] = $session_chat;
 
-        return view('pages.global.chat.create_topic', compact('menu','user','session_chat'));            
+        return view('pages.global.chat.create_topic', $data);            
     }
 
     public function store_topic(Request $req)
@@ -60,40 +61,40 @@ class ChatController extends Controller
 
     public function create_chat($session_chat)
     {
-        $menu = 'Chat';
-        $status_chat = 'From Me';
-        $status_user = Chat::where('session_chat', $session_chat)->first();
-        $user = Chat::where('session_chat', $session_chat)
-                    ->join('users','users.id','=','chats.linked_user')
-                    ->join('roles','roles.id_role','=','users.id_role')
-                    ->select('users.name','users.picture','chats.*','roles.name_role')
-                    ->first();
-        $messages = Message::orderBy('created_at','asc')
+        $data['menu'] = 'Chat';
+        $data['status_chat'] = 'From Me';
+        $data['status_user'] = Chat::where('session_chat', $session_chat)->first();
+        $data['user'] = Chat::where('session_chat', $session_chat)
+                            ->join('users','users.id','=','chats.linked_user')
+                            ->join('roles','roles.id_role','=','users.id_role')
+                            ->select('users.name','users.picture','chats.*','roles.name_role')
+                            ->first();
+        $data['messages'] = Message::orderBy('created_at','asc')
                             ->where('session_chat', $session_chat)
                             ->join('users','users.id','=','messages.id_user')
                             ->select('users.name','users.picture','messages.*')
                             ->get();
         
-        return view('pages.global.chat.chat_session', compact('menu','user','messages','status_chat','status_user'));
+        return view('pages.global.chat.chat_session', $data);
     }
 
     public function create_linked_chat($session_chat)
     {
-        $menu = 'Chat';
-        $status_chat = 'From You';
-        $status_user = Chat::where('session_chat', $session_chat)->first();
-        $user = Chat::where('session_chat', $session_chat)
+        $data['menu'] = 'Chat';
+        $data['status_chat'] = 'From You';
+        $data['status_user'] = Chat::where('session_chat', $session_chat)->first();
+        $data['user'] = Chat::where('session_chat', $session_chat)
                         ->join('users','users.id','=','chats.id_user')
                         ->join('roles','roles.id_role','=','users.id_role')
                         ->select('users.name','users.picture','chats.*','roles.name_role')
                         ->first();
-        $messages = Message::orderBy('created_at','asc')
+        $data['messages'] = Message::orderBy('created_at','asc')
                             ->where('session_chat', $session_chat)
                             ->join('users','users.id','=','messages.id_user')
                             ->select('users.name','users.picture','messages.*')
                             ->get();
         
-        return view('pages.global.chat.chat_session', compact('menu','user','messages','status_chat','status_user'));
+        return view('pages.global.chat.chat_session', $data);
     }
 
     public function store_chat(Request $req)

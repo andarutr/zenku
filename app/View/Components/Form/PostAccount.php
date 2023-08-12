@@ -23,7 +23,7 @@ class PostAccount extends Component
      */
     public function render()
     {
-        $roles = \DB::table('roles')->get();
-        return view('components.form.post-account', compact('roles'));
+        $data['roles'] = \DB::table('roles')->get();
+        return view('components.form.post-account', $data);
     }
 }

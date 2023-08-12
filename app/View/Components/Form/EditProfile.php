@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Form;
 
-use App\Models\Views\VUser;
+use App\Models\User;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +25,7 @@ class EditProfile extends Component
      */
     public function render()
     {
-        $user = VUser::where('id', Auth::user()->id)->first();
-        return view('components.form.edit-profile', compact('user'));
+        $data['user'] = User::where('id', Auth::user()->id)->first();
+        return view('components.form.edit-profile', $data);
     }
 }

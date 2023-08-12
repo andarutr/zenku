@@ -13,20 +13,22 @@ class MateriController extends Controller
 {
     public function index()
     {
-        $menu = 'Materi';
-        return view('pages.guru.materi.index', compact('menu'));
+        $data['menu'] = 'Materi';
+        return view('pages.guru.materi.index', $data);
     }
     
     public function show($id_card)
     {
-        $menu = 'Materi';
-        return view('pages.guru.materi.show', compact('menu','id_card'));
+        $data['menu'] = 'Materi';
+        $data['id_card'] = $id_card;
+
+        return view('pages.guru.materi.show', $data);
     }
 
     public function create()
     {
-        $menu = 'Materi';
-        return view('pages.guru.materi.create', compact('menu'));
+        $data['menu'] = 'Materi';
+        return view('pages.guru.materi.create', $data);
     }
 
     public function store(PostMateriRequest $req)
@@ -54,8 +56,10 @@ class MateriController extends Controller
 
     public function edit($id_card)
     {
-        $menu = 'Materi';
-        return view('pages.guru.materi.edit', compact('menu','id_card'));
+        $data['menu'] = 'Materi';
+        $data['id_card'] = $id_card;
+
+        return view('pages.guru.materi.edit', $data);
     }
 
     public function update(EditMateriRequest $req, $id_card)

@@ -24,22 +24,22 @@ class ForumDetail extends Component
      */
     public function render()
     {
-        $forum = \DB::table('forums')
+        $data['forum'] = \DB::table('forums')
                     ->where('url_forum', $this->url)
                     ->join('users','users.id','=','forums.id_user')
                     ->select('forums.*','users.name','users.picture')
                     ->first();
-        $visit = \DB::table('forums')
+        $data['visit'] = \DB::table('forums')
                     ->where('url_forum', $this->url)
                     ->increment('views_forum');
 
-        $contents = \DB::table('content_forums')
+        $data['contents'] = \DB::table('content_forums')
                         ->where('url_forum', $this->url)
                         ->join('forums','forums.id_forum','=','content_forums.id_forum')
                         ->join('users','users.id','=','content_forums.id_user')
                         ->select('content_forums.*','users.name', 'users.picture','forums.title_forum')
                         ->get();
 
-        return view('components.card.forum-detail', compact('forum','contents'));
+        return view('components.card.forum-detail', $data);
     }
 }

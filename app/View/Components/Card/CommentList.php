@@ -24,8 +24,8 @@ class CommentList extends Component
      */
     public function render()
     {
-        $comments = VComment::orderByDesc('id_comment')->get();
+        $data['comments'] = VComment::orderByDesc('id_comment')->get();
 
-        return view('components.card.comment-list', compact('comments'));
+        return view('components.card.comment-list', $data);
     }
 }

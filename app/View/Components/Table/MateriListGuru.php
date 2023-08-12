@@ -25,10 +25,10 @@ class MateriListGuru extends Component
      */
     public function render()
     {
-        $materi = Card::where('id_user', Auth::user()->id)
+        $data['materi'] = Card::where('id_user', Auth::user()->id)
                         ->orderByDesc('id_card')
                         ->get();
                         
-        return view('components.table.materi-list-guru', compact('materi'));
+        return view('components.table.materi-list-guru', $data);
     }
 }

@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $menu = 'Kategori';
-        return view('pages.admin.category.index', compact('menu'));
+        $data['menu'] = 'Kategori';
+        return view('pages.admin.category.index', $data);
     }
 
     /**
@@ -26,8 +26,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $menu = 'Tambah Kategori';
-        return view('pages.admin.category.create', compact('menu'));
+        $data['menu'] = 'Tambah Kategori';
+        return view('pages.admin.category.create', $data);
     }
 
     /**
@@ -71,8 +71,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $menu = 'Memperbarui Kategori';
-        return view('pages.admin.category.edit', compact('menu','id'));
+        $data['menu'] = 'Memperbarui Kategori';
+        $data['id'] = $id;
+        
+        return view('pages.admin.category.edit', $data);
     }
 
     /**

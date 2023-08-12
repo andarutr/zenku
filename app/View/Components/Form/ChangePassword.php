@@ -25,10 +25,8 @@ class ChangePassword extends Component
      */
     public function render()
     {
-        $role = User::where('id', Auth::user()->id)
-                    ->join('roles','roles.id_role','=','users.id_role')
-                    ->first();
+        $data['role'] = User::where('id', Auth::user()->id)->first();
 
-        return view('components.form.change-password', compact('role'));
+        return view('components.form.change-password', $data);
     }
 }

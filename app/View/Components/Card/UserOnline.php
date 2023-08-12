@@ -24,8 +24,8 @@ class UserOnline extends Component
      */
     public function render()
     {
-        $users = User::orderByDesc('id')->limit(5)->get();
+        $data['users'] = User::orderByDesc('id')->limit(5)->get();
 
-        return view('components.card.user-online', compact('users'));
+        return view('components.card.user-online', $data);
     }
 }

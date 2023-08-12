@@ -24,9 +24,10 @@ class EditRole extends Component
      */
     public function render()
     {
-        $role = \DB::table('roles')
+        $data['role'] = \DB::table('roles')
                     ->where('id_role', $this->id)
                     ->first();
-        return view('components.form.edit-role', compact('role'));
+
+        return view('components.form.edit-role', $data);
     }
 }

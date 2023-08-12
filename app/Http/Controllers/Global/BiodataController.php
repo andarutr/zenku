@@ -12,10 +12,10 @@ class BiodataController extends Controller
     public function show($name)
     {
         $user_name = str_replace('-', ' ', strtolower($name));
-        $user = VUser::where('name', $user_name)->first();
-        $menu = $user->name;
-        $materi = VCard::where('name', $user_name)->orderByDesc('id_card')->limit(6)->get();
+        $data['user'] = VUser::where('name', $user_name)->first();
+        $data['menu'] = $user->name;
+        $data['materi'] = VCard::where('name', $user_name)->orderByDesc('id_card')->limit(6)->get();
 
-        return view('pages.global.biodata', compact('menu','user','materi'));
+        return view('pages.global.biodata', $data);
     }
 }

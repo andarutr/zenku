@@ -24,7 +24,7 @@ class CategoryList extends Component
      */
     public function render()
     {
-        $categories = Category::all();
-        return view('components.table.category-list', compact('categories'));
+        $data['categories'] = Category::all();
+        return view('components.table.category-list', $data);
     }
 }

@@ -25,9 +25,9 @@ class NewMateriId extends Component
      */
     public function render()
     {
-        $materi = VCard::where('id_user', Auth::user()->id)
+        $data['materi'] = VCard::where('id_user', Auth::user()->id)
                         ->limit(4)->get();
 
-        return view('components.card.new-materi-id', compact('materi'));
+        return view('components.card.new-materi-id', $data);
     }
 }

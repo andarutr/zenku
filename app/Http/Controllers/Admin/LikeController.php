@@ -9,7 +9,7 @@ class LikeController extends Controller
 {
     public function index()
     {
-        $menu = 'Like';
-        return view('pages.admin.like.index', compact('menu'));
+        $data['menu'] = 'Like';
+        return view('pages.admin.like.index', $data);
     }
 }

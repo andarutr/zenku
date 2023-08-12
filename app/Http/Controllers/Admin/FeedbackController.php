@@ -10,8 +10,8 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        $menu = 'Feedback';
-        return view('pages.admin.feedback.index', compact('menu'));
+        $data['menu'] = 'Feedback';
+        return view('pages.admin.feedback.index', $data);
     }
 
     public function destroy_all($id_feedback)

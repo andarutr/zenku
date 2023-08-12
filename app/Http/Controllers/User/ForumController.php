@@ -11,20 +11,22 @@ class ForumController extends Controller
 {
     public function index()
     {
-        $menu = 'Forum';
-        return view('pages.user.forum.index', compact('menu'));
+        $data['menu'] = 'Forum';
+        return view('pages.user.forum.index', $data);
     }
 
     public function show($url_forum)
     {
-        $menu = 'Forum Detail';
-        return view('pages.user.forum.show', compact('menu','url_forum'));
+        $data['menu'] = 'Forum Detail';
+        $data['url_forum'] = $url_forum;
+
+        return view('pages.user.forum.show', $data);
     }
 
     public function create()
     {
-        $menu = 'Membuat Forum';
-        return view('pages.user.forum.create', compact('menu'));
+        $data['menu'] = 'Membuat Forum';
+        return view('pages.user.forum.create', $data);
     }
 
     public function store(Request $req)

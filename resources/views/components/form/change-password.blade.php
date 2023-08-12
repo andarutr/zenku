@@ -1,5 +1,5 @@
 <div>
-    <form action="/{{ strtolower($role->name_role) }}/ganti-password/{{ Auth::user()->id }}" method="POST">@csrf @method('put')
+    <form action="/{{ Request::segment(1) }}/ganti-password/{{ Auth::user()->id }}" method="POST">@csrf @method('put')
         <div class="form-group">
             <label for="old_password">Password Lama</label>
             <input type="password" class="form-control" name="old_password" id="old_password">

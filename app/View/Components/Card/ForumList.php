@@ -25,12 +25,12 @@ class ForumList extends Component
      */
     public function render()
     {
-        $forum = \DB::table('forums')
+        $data['forum'] = \DB::table('forums')
                         ->orderByDesc('id_forum')
                         ->join('users','users.id','=','forums.id_user')
                         ->select('forums.*','users.name','users.picture')
                         ->get();
         
-        return view('components.card.forum-list', compact('forum'));
+        return view('components.card.forum-list', $data);
     }
 }

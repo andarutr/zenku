@@ -10,30 +10,33 @@ class MateriController extends Controller
 {
     public function index()
     {
-        $menu = 'Semua Materi';
-        return view('pages.user.materi.index', compact('menu'));
+        $data['menu'] = 'Semua Materi';
+        return view('pages.user.materi.index', $data);
     }
 
     public function search(Request $req)
     {
-        $menu = 'Pencarian Materi';
-        $search = $req->search;
+        $data['menu'] = 'Pencarian Materi';
+        $data['search'] = $req->search;
 
-        return view('pages.user.materi.search', compact('menu','search'));
+        return view('pages.user.materi.search', $data);
     }
 
     public function show($id_card, $url_card)
     {
-        $menu = 'Materi';
-        $title = Card::where('id_card', $id_card)->first();
-        $visit = Card::where('id_card', $id_card)->increment('visit');
+        $data['menu'] = 'Materi';
+        $data['id_card'] = $id_card;
+        $data['title'] = Card::where('id_card', $id_card)->first();
+        $data['visit'] = Card::where('id_card', $id_card)->increment('visit');
 
-        return view('pages.user.materi.show', compact('menu','title','id_card'));
+        return view('pages.user.materi.show', $data);
     }
 
     public function category($id,$name_category)
     {
-        $menu = $name_category;
-        return view('pages.user.materi.category', compact('menu','id'));
+        $data['menu'] = $name_category;
+        $data['id'] = $id;
+
+        return view('pages.user.materi.category', $data);
     }
 }

@@ -25,9 +25,9 @@ class Materi extends Component
      */
     public function render()
     {
-        $materi = VCard::where('id_card', $this->id)
+        $data['materi'] = VCard::where('id_card', $this->id)
                         ->first();
 
-        return view('components.card.materi', compact('materi'));
+        return view('components.card.materi', $data);
     }
 }

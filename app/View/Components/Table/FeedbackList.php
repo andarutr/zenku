@@ -24,8 +24,8 @@ class FeedbackList extends Component
      */
     public function render()
     {
-        $feedbacks = VFeedback::orderByDesc('id_feedback')->paginate(8);
+        $data['feedbacks'] = VFeedback::orderByDesc('id_feedback')->paginate(8);
 
-        return view('components.table.feedback-list', compact('feedbacks'));
+        return view('components.table.feedback-list', $data);
     }
 }

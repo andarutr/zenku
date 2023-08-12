@@ -10,14 +10,16 @@ class MateriController extends Controller
 {
     public function index()
     {
-        $menu = 'Materi';
-        return view('pages.penguji.materi.index', compact('menu'));
+        $data['menu'] = 'Materi';
+        return view('pages.penguji.materi.index', $data);
     }
 
     public function show($id_card)
     {
-        $menu = 'Materi';
-        return view('pages.penguji.materi.show', compact('menu','id_card'));
+        $data['menu'] = 'Materi';
+        $data['id_card'] = $id_card;
+
+        return view('pages.penguji.materi.show', $data);
     }
 
     public function update($id_card)

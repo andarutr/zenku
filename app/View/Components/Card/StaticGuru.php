@@ -26,12 +26,11 @@ class StaticGuru extends Component
      */
     public function render()
     {
-        $guru_count = User::where('id_role', 2)->count();
-        $siswa_count = User::where('id_role', 3)->count();
-        $penguji_count = User::where('id_role', 4)->count();
-        $card_count = Card::where('id_user', Auth::user()->id)
-                            ->count();
+        $data['guru_count'] = User::where('id_role', 2)->count();
+        $data['siswa_count'] = User::where('id_role', 3)->count();
+        $data['penguji_count'] = User::where('id_role', 4)->count();
+        $data['card_count'] = Card::where('id_user', Auth::user()->id)->count();
 
-        return view('components.card.static-guru', compact('guru_count','siswa_count','penguji_count','card_count'));
+        return view('components.card.static-guru', $data);
     }
 }

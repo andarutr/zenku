@@ -11,14 +11,14 @@ class MenuController extends Controller
 {
     public function index()
     {
-        $menu = 'Menu';
-        return view('pages.admin.management.menu', compact('menu'));
+        $data['menu'] = 'Menu';
+        return view('pages.admin.management.menu', $data);
     }
 
     public function create()
     {
-        $menu = 'Tambah Menu';
-        return view('pages.admin.management.menu_add', compact('menu'));
+        $data['menu'] = 'Tambah Menu';
+        return view('pages.admin.management.menu_add', $data);
     }
 
     public function store(MenuRequest $req)
@@ -41,8 +41,10 @@ class MenuController extends Controller
 
     public function edit($id)
     {
-        $menu = 'Menu';
-        return view('pages.admin.management.menu_edit', compact('menu','id'));
+        $data['menu'] = 'Menu';
+        $data['id'] = $id;
+
+        return view('pages.admin.management.menu_edit', $data);
     }
 
     public function update(MenuRequest $req, $id_menu)

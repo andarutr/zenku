@@ -48,10 +48,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="userDropdown">
-                <a href="/{{ strtolower($user->name_role) }}/profile" class="dropdown-item"><i class="fas fa-user fa-sm fa-fw mr-2 text-secondary"></i> Profile</a>
-                <a href="/{{ strtolower($user->name_role) }}/ganti-password" class="dropdown-item"><i class="fas fa-lock fa-sm fa-fw mr-2 text-secondary"></i> Ganti Password</a>
+                <a href="/{{ Request::segment(1) }}/profile" class="dropdown-item"><i class="fas fa-user fa-sm fa-fw mr-2 text-secondary"></i> Profile</a>
+                <a href="/{{ Request::segment(1) }}/ganti-password" class="dropdown-item"><i class="fas fa-lock fa-sm fa-fw mr-2 text-secondary"></i> Ganti Password</a>
                 <a href="/{{ Request::segment(1) }}/chat" class="dropdown-item"><i class="fas fa-comment-alt fa-sm fa-fw mr-2 text-secondary"></i> Chatting</a>
-                @if(Auth::user()->id_role === 3)
+                @if(Auth::user()->role->role === 'User')
                 <a href="{{ route('user.like.index') }}" class="dropdown-item"><i class="fas fa-heart fa-sm fa-fw mr-2 text-secondary"></i> Like ({{ $like_count }})</a>
                 <a href="{{ route('user.comment.index') }}" class="dropdown-item"><i class="fas fa-comment fa-sm fa-fw mr-2 text-secondary"></i> Comment ({{ $comment_count }})</a>
                 @endif

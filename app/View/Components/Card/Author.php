@@ -25,9 +25,9 @@ class Author extends Component
      */
     public function render()
     {
-        $author = VCard::where('id_card', $this->id)
+        $data['author'] = VCard::where('id_card', $this->id)
                         ->first();
 
-        return view('components.card.author', compact('author'));
+        return view('components.card.author', $data);
     }
 }

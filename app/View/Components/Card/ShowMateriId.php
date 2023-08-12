@@ -25,8 +25,8 @@ class ShowMateriId extends Component
      */
     public function render()
     {
-        $materi = Card::where('id_card', $this->id)->first();
+        $data['materi'] = Card::where('id_card', $this->id)->first();
 
-        return view('components.card.show-materi-id', compact('materi'));
+        return view('components.card.show-materi-id', $data);
     }
 }

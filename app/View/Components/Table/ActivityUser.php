@@ -24,8 +24,8 @@ class ActivityUser extends Component
      */
     public function render()
     {
-        $activity = VActivity::orderByDesc('id_activity')->paginate(8);
+        $data['activity'] = VActivity::orderByDesc('id_activity')->paginate(8);
 
-        return view('components.table.activity-user', compact('activity'));
+        return view('components.table.activity-user', $data);
     }
 }

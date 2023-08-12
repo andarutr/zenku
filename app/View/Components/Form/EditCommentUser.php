@@ -26,8 +26,8 @@ class EditCommentUser extends Component
      */
     public function render()
     {
-        $comment = Comment::where(['id_comment' => $this->id, 'id_user' => Auth::user()->id])->first();
+        $data['comment'] = Comment::where(['id_comment' => $this->id, 'id_user' => Auth::user()->id])->first();
 
-        return view('components.form.edit-comment-user', compact('comment'));
+        return view('components.form.edit-comment-user', $data);
     }
 }

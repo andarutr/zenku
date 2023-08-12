@@ -24,7 +24,7 @@ class PostMateri extends Component
      */
     public function render()
     {
-        $categories = Category::all();
-        return view('components.form.post-materi', compact('categories'));
+        $data['categories'] = Category::all();
+        return view('components.form.post-materi', $data);
     }
 }

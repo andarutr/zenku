@@ -15,8 +15,8 @@ class AccountController extends Controller
      */
     public function index()
     {
-        $menu = 'Account';
-        return view('pages.admin.management.account', compact('menu'));
+        $data['menu'] = 'Account';
+        return view('pages.admin.management.account', $data);
     }
 
     /**
@@ -26,8 +26,8 @@ class AccountController extends Controller
      */
     public function create()
     {
-        $menu = 'Tambah Account';
-        return view('pages.admin.management.account_add', compact('menu'));
+        $data['menu'] = 'Tambah Account';
+        return view('pages.admin.management.account_add', $data);
     }
 
     /**
@@ -76,8 +76,10 @@ class AccountController extends Controller
      */
     public function edit($id)
     {
-        $menu = 'Profile';
-        return view('pages.admin.management.account_edit', compact('menu','id'));
+        $data['menu'] = 'Profile';
+        $data['id'] = $id;
+
+        return view('pages.admin.management.account_edit', $data);
     }
 
     /**
@@ -109,7 +111,6 @@ class AccountController extends Controller
         ]);
 
         return redirect()->route('admin.account.index')->withToastSuccess('Berhasil memperbarui akun!');
-
     }
 
     /**
@@ -132,10 +133,10 @@ class AccountController extends Controller
 
     public function ganti_password($id)
     {
-        $menu = 'Ganti Password Account';
-        $user = User::where('id', $id)->first();
+        $data['menu'] = 'Ganti Password Account';
+        $data['user'] = User::where('id', $id)->first();
 
-        return view('pages.admin.management.ganti_password', compact('menu','user'));
+        return view('pages.admin.management.ganti_password', $data);
     }
 
     public function proses_ganti_password(Request $req, $id)

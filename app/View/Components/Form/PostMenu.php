@@ -23,9 +23,9 @@ class PostMenu extends Component
      */
     public function render()
     {
-        $categories = \DB::table('category_menu')->get();
-        $roles = \DB::table('roles')->get();
+        $data['categories'] = \DB::table('category_menu')->get();
+        $data['roles'] = \DB::table('roles')->get();
 
-        return view('components.form.post-menu', compact('categories','roles'));
+        return view('components.form.post-menu', $data);
     }
 }

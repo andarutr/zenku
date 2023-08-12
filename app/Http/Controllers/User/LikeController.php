@@ -12,8 +12,8 @@ class LikeController extends Controller
 {
     public function index()
     {
-        $menu = 'Like';
-        return view('pages.user.like.index', compact('menu'));
+        $data['menu'] = 'Like';
+        return view('pages.user.like.index', $data);
     }
 
     public function store($id_card)

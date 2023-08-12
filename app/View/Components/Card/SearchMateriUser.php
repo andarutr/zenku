@@ -26,11 +26,11 @@ class SearchMateriUser extends Component
     public function render()
     {
         
-        $materi = Card::where('is_active', 'active')
+        $data['materi'] = Card::where('is_active', 'active')
                         ->orderByDesc('id_card')
                         ->where('title_card','like','%'.$this->keyword.'%')
                         ->paginate(12);
 
-        return view('components.card.search-materi-user', compact('materi'));
+        return view('components.card.search-materi-user', $data);
     }
 }

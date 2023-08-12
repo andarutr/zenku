@@ -25,8 +25,8 @@ class CommentDetail extends Component
      */
     public function render()
     {
-        $comment = VComment::where('id_comment', $this->id)->first();
+        $data['comment'] = VComment::where('id_comment', $this->id)->first();
 
-        return view('components.card.comment-detail', compact('comment'));
+        return view('components.card.comment-detail', $data);
     }
 }

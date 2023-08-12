@@ -26,8 +26,9 @@ class EditMateri extends Component
      */
     public function render()
     {
-        $materi = VCard::where('id_card', $this->id)->first();
-        $categories = Category::all();
-        return view('components.form.edit-materi', compact('materi','categories'));
+        $data['materi'] = VCard::where('id_card', $this->id)->first();
+        $data['categories'] = Category::all();
+        
+        return view('components.form.edit-materi', $data);
     }
 }

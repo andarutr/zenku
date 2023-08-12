@@ -9,13 +9,14 @@ class CommentController extends Controller
 {
     public function index()
     {
-        $menu = 'Komentar';
-        return view('pages.guru.comment.index', compact('menu'));
+        $data['menu'] = 'Komentar';
+        return view('pages.guru.comment.index', $data);
     }
 
     public function show($id_comment)
     {
-        $menu = 'Komentar';
-        return view('pages.guru.comment.show', compact('menu','id_comment'));
+        $data['menu'] = 'Komentar';
+        $data['id_comment'] = $id_comment;
+        return view('pages.guru.comment.show', $data);
     }
 }

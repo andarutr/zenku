@@ -10,14 +10,16 @@ class CommentController extends Controller
 {
     public function index()
     {
-        $menu = 'Komentar';
-        return view('pages.admin.comment.index', compact('menu'));
+        $data['menu'] = 'Komentar';
+        return view('pages.admin.comment.index', $data);
     }
     
     public function show($id_comment)
     {
-        $menu = 'Komentar';
-        return view('pages.admin.comment.show', compact('menu','id_comment'));
+        $data['menu'] = 'Komentar';
+        $data['id_comment'] = $id_comment;
+
+        return view('pages.admin.comment.show', $data);
     }
 
     public function destroy($id_comment)

@@ -11,14 +11,14 @@ class ActivityAccountController extends Controller
 {
     public function index()
     {
-      $sub_menu = '/user/pengaturan-akun/aktifitas-akun';
-      $menu = 'Aktifitas Akun';
-      $activities = Activity::where('id_user', Auth::user()->id)
+      $data['sub_menu'] = '/user/pengaturan-akun/aktifitas-akun';
+      $data['menu'] = 'Aktifitas Akun';
+      $data['activities'] = Activity::where('id_user', Auth::user()->id)
                               ->orderByDesc('id_activity')
                               ->join('users','users.id','=','activity.id_user')
                               ->select('users.name','users.picture','activity.*')
                               ->paginate(5);
 
-      return view('pages.app.account.activity', compact('sub_menu','menu','activities'));
+      return view('pages.app.account.activity', $data);
     }
 }

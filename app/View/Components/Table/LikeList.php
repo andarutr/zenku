@@ -26,14 +26,14 @@ class LikeList extends Component
     public function render()
     {
         if(Auth::user()->id === 1){
-            $likes = VLike::orderByDesc('id_like')
+            $data['likes'] = VLike::orderByDesc('id_like')
                         ->paginate(8);
         }else{
-            $likes = VLike::where('author', Auth::user()->name)
+            $data['likes'] = VLike::where('author', Auth::user()->name)
                         ->orderByDesc('id_like')
                         ->paginate(8);
         }
 
-        return view('components.table.like-list', compact('likes'));
+        return view('components.table.like-list', $data);
     }
 }

@@ -25,11 +25,11 @@ class StaticPenguji extends Component
      */
     public function render()
     {
-        $guru_count = User::where('id_role', 2)->count();
-        $siswa_count = User::where('id_role', 3)->count();
-        $card_verif_count = Card::where('is_active', 'active')->count();
-        $card_count = Card::count();
+        $data['guru_count'] = User::where('id_role', 2)->count();
+        $data['siswa_count'] = User::where('id_role', 3)->count();
+        $data['card_verif_count'] = Card::where('is_active', 'active')->count();
+        $data['card_count'] = Card::count();
 
-        return view('components.card.static-penguji', compact('guru_count','siswa_count','card_verif_count','card_count'));
+        return view('components.card.static-penguji', $data);
     }
 }

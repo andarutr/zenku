@@ -25,12 +25,13 @@ class EditMenu extends Component
      */
     public function render()
     {
-        $menu_get = Menu::where('id_menu', $this->id)
+        $data['menu_get'] = Menu::where('id_menu', $this->id)
                         ->join('category_menu','category_menu.id_category_menu','=','menu.id_category_menu')
                         ->join('roles','roles.id_role','=','menu.id_role')
                         ->first();
-        $categories = \DB::table('category_menu')->get();
-        $roles = \DB::table('roles')->get();
-        return view('components.form.edit-menu', compact('menu_get','categories','roles'));
+        $data['categories'] = \DB::table('category_menu')->get();
+        $data['roles'] = \DB::table('roles')->get();
+
+        return view('components.form.edit-menu', $data);
     }
 }

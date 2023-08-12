@@ -12,8 +12,8 @@ class CommentController extends Controller
 {
     public function index()
     {
-        $menu = 'Comment';
-        return view('pages.user.comment.index', compact('menu'));
+        $data['menu'] = 'Comment';
+        return view('pages.user.comment.index', $data);
     }
 
     public function store(Request $req, $id_card)
@@ -37,8 +37,10 @@ class CommentController extends Controller
     }
     public function edit(Request $req, $id_comment)
     {
-        $menu = 'Comment';
-        return view('pages.user.comment.update', compact('menu','id_comment'));
+        $data['menu'] = 'Comment';
+        $data['id_comment'] = $id_comment;
+
+        return view('pages.user.comment.update', $data);
     }
 
     public function update(Request $req, $id_comment)

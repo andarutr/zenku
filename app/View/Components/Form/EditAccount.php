@@ -27,10 +27,10 @@ class EditAccount extends Component
      */
     public function render()
     {
-        $provinsi = Provinsi::all();
-        $kota_administrasi = KotaAdministrasi::all();
-        $user = VUser::where('id', $this->id)->first();
+        $data['provinsi'] = Provinsi::all();
+        $data['kota_administrasi'] = KotaAdministrasi::all();
+        $data['user'] = VUser::where('id', $this->id)->first();
 
-        return view('components.form.edit-account', compact('provinsi','kota_administrasi','user'));
+        return view('components.form.edit-account', $data);
     }
 }

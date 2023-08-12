@@ -25,10 +25,10 @@ class LikeUser extends Component
      */
     public function render()
     {
-        $likes = VLike::orderByDesc('id_like')
+        $data['likes'] = VLike::orderByDesc('id_like')
                         ->where('name', Auth::user()->name)
                         ->paginate(8);
                         
-        return view('components.table.like-user', compact('likes'));
+        return view('components.table.like-user', $data);
     }
 }

@@ -26,9 +26,9 @@ class Sidebar extends Component
      */
     public function render()
     {
-        $menus = Menu::where('role_id', Auth::user()->role_id)->get();
-        $categories = Category::all();
+        $data['menus'] = Menu::where('role_id', Auth::user()->role_id)->get();
+        $data['categories'] = Category::all();
 
-        return view('components.panel.sidebar', compact('menus','categories'));
+        return view('components.panel.sidebar', $data);
     }
 }

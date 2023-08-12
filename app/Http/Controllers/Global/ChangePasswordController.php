@@ -12,9 +12,8 @@ class ChangePasswordController extends Controller
 {
     public function index()
     {
-        $menu = 'Ganti Password';
-
-        return view('pages.global.change_password', compact('menu'));
+        $data['menu'] = 'Ganti Password';
+        return view('pages.global.change_password', $data);
     }
 
     public function update(PasswordRequest $req)

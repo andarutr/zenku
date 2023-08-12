@@ -25,7 +25,7 @@ class EditCategory extends Component
      */
     public function render()
     {
-        $category = Category::where('id_category', $this->id)->first();
-        return view('components.form.edit-category', compact('category'));
+        $data['category'] = Category::where('id_category', $this->id)->first();
+        return view('components.form.edit-category', $data);
     }
 }

@@ -11,15 +11,15 @@ class RoleAccessController extends Controller
 {
     public function index()
     {
-        $menu = 'Role';
-        return view('pages.admin.account.role', compact('menu'));
+        $data['menu'] = 'Role';
+        return view('pages.admin.account.role', $data);
     }
 
     public function create()
     {
-        $menu = 'Tambah Role';
+        $data['menu'] = 'Tambah Role';
 
-        return view('pages.admin.account.role_add', compact('menu'));
+        return view('pages.admin.account.role_add', $data);
     }
 
     public function store(PostRoleRequest $req)
@@ -36,8 +36,10 @@ class RoleAccessController extends Controller
 
     public function edit(Request $req, $id_role)
     {
-        $menu = 'Perbarui Role';
-        return view('pages.admin.account.role_edit', compact('menu','id_role'));
+        $data['menu'] = 'Perbarui Role';
+        $data['id_role'] = $id_role;
+
+        return view('pages.admin.account.role_edit', $data);
     }
 
     public function update(EditRoleRequest $req, $id_role)

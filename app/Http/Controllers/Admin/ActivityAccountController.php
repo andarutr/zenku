@@ -10,8 +10,8 @@ class ActivityAccountController extends Controller
 {
     public function index()
     {
-        $menu = 'Aktifitas Akun';
-        return view('pages.admin.account.activity', compact('menu'));
+        $data['menu'] = 'Aktifitas Akun';
+        return view('pages.admin.account.activity', $data);
     }
 
     public function destroy($aktifitas_akun)

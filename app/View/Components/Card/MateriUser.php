@@ -25,10 +25,10 @@ class MateriUser extends Component
      */
     public function render()
     {
-        $materi = VCard::where('is_active', 'active')
+        $data['materi'] = VCard::where('is_active', 'active')
                         ->orderByDesc('id_card')
                         ->paginate(12);
 
-        return view('components.card.materi-user', compact('materi'));
+        return view('components.card.materi-user', $data);
     }
 }

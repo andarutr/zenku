@@ -25,8 +25,8 @@ class CommentUser extends Component
      */
     public function render()
     {
-        $user = VComment::where('id_comment', $this->id)->first();
+        $data['user'] = VComment::where('id_comment', $this->id)->first();
 
-        return view('components.card.comment-user', compact('user'));
+        return view('components.card.comment-user', $data);
     }
 }

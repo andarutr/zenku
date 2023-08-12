@@ -24,10 +24,10 @@ class NewVerifMateri extends Component
      */
     public function render()
     {
-        $materi = VCard::where('is_active', 'active')
+        $data['materi'] = VCard::where('is_active', 'active')
                         ->orderByDesc('id_card')
                         ->limit(8)->get();
 
-        return view('components.card.new-verif-materi', compact('materi'));
+        return view('components.card.new-verif-materi', $data);
     }
 }

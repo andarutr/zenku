@@ -1,5 +1,5 @@
 <div>
-    <form action="/{{ strtolower($user->role) }}/profile/{{ Auth::user()->id }}" method="POST" enctype="multipart/form-data">@csrf @method('put')
+    <form action="/{{ Request::segment(1) }}/profile/{{ Auth::user()->id }}" method="POST" enctype="multipart/form-data">@csrf @method('put')
         <input type="hidden" name="name" value="{{ Auth::user()->name }}">
         <div class="form-group">
             <label for="name">Nama Lengkap</label>

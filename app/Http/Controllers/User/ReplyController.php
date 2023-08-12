@@ -10,8 +10,11 @@ class ReplyController extends Controller
 {
     public function create($id, $url)
     {
-        $menu = str_replace('-', ' ', $url);
-        return view('pages.user.forum.reply', compact('menu','url','id'));
+        $data['id'] = $id;
+        $data['url'] = $url;
+        $data['menu'] = str_replace('-', ' ', $url);
+
+        return view('pages.user.forum.reply', $data);
     }
 
     public function store(Request $req, $id, $url)

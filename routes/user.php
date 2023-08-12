@@ -16,6 +16,7 @@ use App\Http\Controllers\Global\ChangePasswordController as ChangePassword;
 Route::middleware('isUser')->prefix('/user')->name('user.')->group(function(){
 	Route::get('/', [Homepage::class, 'index'])->name('index');
 	Route::resource('profile', Profile::class);
+	Route::resource('ganti-password', ChangePassword::class);
 	Route::resource('materi', Materi::class);
 	Route::get('/aktifitas-akun', [Activity::class, 'index'])->name('activity.index');
 	Route::get('/like', [Like::class, 'index'])->name('like.index');

@@ -11,8 +11,8 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        $menu = 'Feedback';
-        return view('pages.user.feedback.index', compact('menu'));
+        $data['menu'] = 'Feedback';
+        return view('pages.user.feedback.index', $data);
     }
 
     public function store(Request $req)
