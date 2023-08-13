@@ -16,14 +16,14 @@ class ChatController extends Controller
     {
         $data['menu'] = 'Chat';
         $data['users'] = User::all();
-        $data['chat_from_me'] = Chat::orderByDesc('id_chat')
-                            ->where('id_user', Auth::user()->id)
+        $data['chat_from_me'] = Chat::orderByDesc('id')
+                            ->where('user_id', Auth::user()->id)
                             ->join('users','users.id','=','chats.linked_user')
                             ->select('chats.*','users.name','users.picture','users.id as is_online')
                             ->get();
-        $data['chat_from_other'] = Chat::orderByDesc('id_chat')
+        $data['chat_from_other'] = Chat::orderByDesc('id')
                                 ->where('linked_user', Auth::user()->id)
-                                ->join('users','users.id','=','chats.id_user')
+                                ->join('users','users.id','=','chats.user_id')
                                 ->select('chats.*','users.name','users.picture','users.id as is_online')
                                 ->get();
                                 

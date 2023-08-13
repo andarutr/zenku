@@ -26,14 +26,8 @@ class CommentMateriId extends Component
      */
     public function render()
     {
-        $data['materi'] = Card::where('id_card', $this->id)
-                        ->join('users','users.id','=','cards.id_user')
-                        ->first();
-
-        $data['comments'] = Comment::where('id_card', $this->id)
-                            ->join('users','users.id','=','comments.id_user')
-                            ->select('comments.*','users.name','users.picture')
-                            ->get();
+        $data['materi'] = Card::where('id', $this->id)->first();
+        $data['comments'] = Comment::where('card_id', $this->id)->get();
 
         return view('components.card.comment-materi-id', $data);
     }

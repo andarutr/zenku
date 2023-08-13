@@ -4,13 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Activity extends Model
+class ContentForum extends Model
 {
-    protected $table = 'activity';
+    protected $table = 'content_forums';
 
     protected $guarded = [];
 
     public $timestamps = FALSE;
+    
+    public function forum()
+    {
+        return $this->belongsTo(Forum::class);
+    }
 
     public function user()
     {

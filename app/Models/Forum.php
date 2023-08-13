@@ -4,13 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Activity extends Model
+class Forum extends Model
 {
-    protected $table = 'activity';
-
     protected $guarded = [];
 
     public $timestamps = FALSE;
+    
+    public function content_forum()
+    {
+        return $this->hasMany(ContentForum::class);
+    }
 
     public function user()
     {

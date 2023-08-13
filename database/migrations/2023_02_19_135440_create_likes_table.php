@@ -17,7 +17,7 @@ class CreateLikesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('card_id');
             $table->unsignedBigInteger('user_id');
-            $table->integer('id_author');
+            $table->integer('author_id');
             $table->timestamps();
 
             $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');

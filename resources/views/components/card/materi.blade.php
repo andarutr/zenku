@@ -9,7 +9,7 @@
             </div>
         </center>
         <div class="mt-4">
-            <h5><span class="badge bg-primary p-2 text-white">{{ $materi->category }}</span></h5>
+            <h5><span class="badge bg-primary p-2 text-white">{{ $materi->category->category }}</span></h5>
             <?php echo $materi->description; ?>
         </div>
     </div>

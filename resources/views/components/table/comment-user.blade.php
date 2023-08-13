@@ -15,23 +15,25 @@
             </thead>
             <tbody>
                 @foreach($comments as $comment)
+                @if($comment->user->name === Auth::user()->name)
                 <tr>
                     <td>
-                        <a href="/img/materi/{{ $comment->picture_card }}" data-fancybox>
-                            <img src="/img/materi/{{ $comment->picture_card }}" width="100">
+                        <a href="/img/materi/{{ $comment->card->picture_card }}" data-fancybox>
+                            <img src="/img/materi/{{ $comment->card->picture_card }}" width="100">
                         </a>
                     </td>
-                    <td>{{ $comment->title_card }}</td>
+                    <td>{{ $comment->card->title_card }}</td>
                     <td>{{ $comment->comment }}</td>
                     <td width="5">
-                        <a href="{{ route('user.comment.edit', ['id_comment' => $comment->id_comment]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>
+                        <a href="{{ route('user.comment.edit', ['id' => $comment->id]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>
                     </td>
                     <td width="5">
-                        <form action="{{ route('user.comment.destroy', ['id_comment' => $comment->id_comment]) }}" method="POST">@csrf @method('delete')
+                        <form action="{{ route('user.comment.destroy', ['id' => $comment->id]) }}" method="POST">@csrf @method('delete')
                             <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Yakin ingin menghapus komentar ?')"><i class="fas fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
             </table>

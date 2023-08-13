@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Table;
 
-use App\Models\Views\VLike;
+use App\Models\Like;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,9 +25,7 @@ class LikeUser extends Component
      */
     public function render()
     {
-        $data['likes'] = VLike::orderByDesc('id_like')
-                        ->where('name', Auth::user()->name)
-                        ->paginate(8);
+        $data['likes'] = Like::orderByDesc('id')->paginate(8);
                         
         return view('components.table.like-user', $data);
     }

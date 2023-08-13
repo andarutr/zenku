@@ -23,13 +23,13 @@ class CommentController extends Controller
         ]);
 
         // Track Activity Account
-        $materi = Card::where('id_card', $id_card)->first();
+        $materi = Card::where('id', $id_card)->first();
         \Record::track('Memberikan Komentar Pada Materi '.$materi->title_card);
 
         Comment::create([
-            'id_user' => Auth::user()->id,
-            'id_card' => $id_card,
-            'id_author' => $materi->id_user,
+            'user_id' => Auth::user()->id,
+            'card_id' => $id_card,
+            'author_id' => $materi->user_id,
             'comment' => $req->comment
         ]);
 

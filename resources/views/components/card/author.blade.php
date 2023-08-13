@@ -4,13 +4,13 @@
     </div>
     <div class="card-body">
         <center>
-            <img src="/img/profile/{{ $author->picture }}" class="img-fluid rounded-circle mb-3" width="100">
+            <img src="/img/profile/{{ $author->user->picture }}" class="img-fluid rounded-circle mb-3" width="100">
         </center>
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Author</th>
-                    <td>{{ $author->name }} <a href="/bio/{{ str_replace(' ', '-', strtolower($author->name)) }}" class="badge bg-primary text-white"><i class="fas fa-eye"></i></a></td>
+                    <td>{{ $author->user->name }} <a href="/bio/{{ str_replace(' ', '-', strtolower($author->user->name)) }}" class="badge bg-primary text-white"><i class="fas fa-eye"></i></a></td>
                 </tr>
                 <tr>
                     <th>Judul</th>
@@ -22,11 +22,11 @@
                 </tr>
                 <tr>
                     <th>Disukai</th>
-                    <td>{{ $author->num_like }}</td>
+                    <td>{{ $like_count }}</td>
                 </tr>
                 <tr>
                     <th>Komentar</th>
-                    <td>{{ $author->num_comment }}</td>
+                    <td>{{ $comment_count }}</td>
                 </tr>
                 <tr>
                     <th>Visit</th>

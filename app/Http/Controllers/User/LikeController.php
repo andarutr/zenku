@@ -19,13 +19,13 @@ class LikeController extends Controller
     public function store($id_card)
     {
         // Track Activity Account
-        $materi = Card::where('id_card', $id_card)->first();
+        $materi = Card::where('id', $id_card)->first();
         \Record::track('Menyukai Materi '.$materi->title_card);
         
         Like::firstOrCreate([
-            'id_card' => $id_card,
-            'id_user' => Auth::user()->id,
-            'id_author' => $materi->id_user
+            'card_id' => $id_card,
+            'user_id' => Auth::user()->id,
+            'author_id' => $materi->user_id
         ]);
         
         return redirect()->back()->withToastSuccess('Berhasil Like Materi!');

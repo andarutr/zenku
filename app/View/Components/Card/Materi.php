@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Card;
 
-use App\Models\Views\VCard;
+use App\Models\Card;
 use Illuminate\View\Component;
 
 class Materi extends Component
@@ -25,8 +25,7 @@ class Materi extends Component
      */
     public function render()
     {
-        $data['materi'] = VCard::where('id_card', $this->id)
-                        ->first();
+        $data['materi'] = Card::where('id', $this->id)->first();
 
         return view('components.card.materi', $data);
     }

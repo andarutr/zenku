@@ -2,7 +2,9 @@
 
 namespace App\View\Components\Card;
 
-use App\Models\Views\VCard;
+use App\Models\Card;
+use App\Models\Like;
+use App\Models\Comment;
 use Illuminate\View\Component;
 
 class Author extends Component
@@ -25,9 +27,10 @@ class Author extends Component
      */
     public function render()
     {
-        $data['author'] = VCard::where('id_card', $this->id)
-                        ->first();
-
+        $data['author'] = Card::where('id', $this->id)->first();
+        $data['like_count'] = Like::where('card_id', $this->id)->count();
+        $data['comment_count'] = Comment::where('card_id', $this->id)->count();
+        
         return view('components.card.author', $data);
     }
 }

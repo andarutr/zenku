@@ -15,23 +15,25 @@
             </thead>
             <tbody>
                 @foreach($likes as $like)
+                @if($like->user->name === Auth::user()->name)
                 <tr>
                     <td>
-                        <a href="/img/materi/{{ $like->picture_card }}" data-fancybox>
-                            <img src="/img/materi/{{ $like->picture_card }}" width="100">
+                        <a href="/img/materi/{{ $like->card->picture_card }}" data-fancybox>
+                            <img src="/img/materi/{{ $like->card->picture_card }}" width="100">
                         </a>
                     </td>
-                    <td>{{ $like->title }}</td>
+                    <td>{{ $like->card->title_card }}</td>
                     <td>{{ \Carbon\Carbon::parse($like->created_at)->format('d F Y') }}</td>
                     <td>
-                        <a href="{{ route('user.materi.show', ['id_card' => $like->id_card ,'url_card' => $like->url_card]) }}" class="btn btn-md btn-primary"><i class="fas fa-eye"></i></a>&nbsp;
+                        <a href="{{ route('user.materi.show', ['id' => $like->card_id ,'url' => $like->card->url_card]) }}" class="btn btn-md btn-primary"><i class="fas fa-eye"></i></a>&nbsp;
                     </td>
                     <td>
-                        <form action="{{ route('user.like.destroy', ['id_like' => $like->id_like]) }}" method="POST">@csrf @method('delete')
+                        <form action="{{ route('user.like.destroy', ['id' => $like->id]) }}" method="POST">@csrf @method('delete')
                             <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Yakin ingin menghapus like ?')"><i class="fas fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
             </table>

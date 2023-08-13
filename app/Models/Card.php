@@ -17,4 +17,14 @@ class Card extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function like()
+    {
+        return $this->hasMany(Like::card);
+    }
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::card);
+    }
 }

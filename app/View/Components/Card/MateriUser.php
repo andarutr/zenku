@@ -3,7 +3,7 @@
 namespace App\View\Components\Card;
 
 use App\Models\Like;
-use App\Models\Views\VCard;
+use App\Models\Card;
 use Illuminate\View\Component;
 
 class MateriUser extends Component
@@ -25,9 +25,9 @@ class MateriUser extends Component
      */
     public function render()
     {
-        $data['materi'] = VCard::where('is_active', 'active')
-                        ->orderByDesc('id_card')
-                        ->paginate(12);
+        $data['materi'] = Card::where('is_active', 'active')
+                                ->orderByDesc('id')
+                                ->paginate(12);
 
         return view('components.card.materi-user', $data);
     }

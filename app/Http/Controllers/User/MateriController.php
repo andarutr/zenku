@@ -26,8 +26,8 @@ class MateriController extends Controller
     {
         $data['menu'] = 'Materi';
         $data['id_card'] = $id_card;
-        $data['title'] = Card::where('id_card', $id_card)->first();
-        $data['visit'] = Card::where('id_card', $id_card)->increment('visit');
+        $data['title'] = Card::where('id', $id_card)->first();
+        $data['visit'] = Card::where('id', $id_card)->increment('visit');
 
         return view('pages.user.materi.show', $data);
     }

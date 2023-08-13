@@ -25,12 +25,7 @@ class CommentUser extends Component
      */
     public function render()
     {
-        $data['comments'] = Comment::orderByDesc('id_comment')
-                        ->join('cards','cards.id_card','=','comments.id_card')
-                        ->join('users','users.id','=','comments.id_user')
-                        ->select('cards.title_card','cards.picture_card','cards.url_card','users.name','users.email','comments.*')
-                        ->where('email', Auth::user()->email)
-                        ->paginate(8);
+        $data['comments'] = Comment::orderByDesc('id')->paginate(8);
 
         return view('components.table.comment-user', $data);
     }
