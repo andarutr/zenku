@@ -29,7 +29,7 @@ Route::middleware('isAdmin')->prefix('admin')->name('admin.')->group(function(){
 	Route::resource('like', Like::class);
 	Route::resource('komentar', Comment::class);
 	Route::resource('feedback', Feedback::class);
-	Route::get('/feedback/hapus/{id_feedback}', [Feedback::class, 'destroy_all'])->name('feedback.destroy_all');
+	Route::get('/feedback/hapus/{id}', [Feedback::class, 'destroy_all'])->name('feedback.destroy_all');
 	Route::resource('account', Account::class);
 	Route::get('/ganti-password/akun/{id}', [Account::class,'ganti_password']);
 	Route::post('/ganti-password/akun/{id}', [Account::class,'proses_ganti_password']);
