@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Global;
 
-use App\Models\Views\VCard;
-use App\Models\Views\VUser;
+use App\Models\Card;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,10 +11,10 @@ class BiodataController extends Controller
 {
     public function show($name)
     {
-        $user_name = str_replace('-', ' ', strtolower($name));
-        $data['user'] = VUser::where('name', $user_name)->first();
-        $data['menu'] = $user->name;
-        $data['materi'] = VCard::where('name', $user_name)->orderByDesc('id_card')->limit(6)->get();
+        $user = str_replace('-', ' ', strtolower($name));
+        $data['user'] = User::where('name', $user)->first();
+        $data['menu'] = $user;
+        $data['materi'] = Card::orderByDesc('id')->limit(6)->get();
 
         return view('pages.global.biodata', $data);
     }

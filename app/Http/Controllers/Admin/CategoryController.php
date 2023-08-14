@@ -39,15 +39,15 @@ class CategoryController extends Controller
     public function store(Request $req)
     {
         $this->validate($req, [
-            'name_category' => 'required|unique:categories'
+            'category' => 'required|unique:categories'
         ]);
         
         $store = Category::create([
-            'name_category' => $req->name_category
+            'category' => $req->category
         ]);
 
          // Track Activity Account
-         \Record::track('Menambahkan Kategori '.$req->name_category);
+         \Record::track('Menambahkan Kategori '.$req->category);
 
         return redirect()->route('admin.kategori.index')->withToastSuccess('Berhasil menambah kategori!');
     }
@@ -87,12 +87,12 @@ class CategoryController extends Controller
     public function update(Request $req, $id)
     {
         $this->validate($req, [
-            'name_category' => 'required|unique:categories'
+            'category' => 'required|unique:categories'
         ]);
         
-        $update = Category::where('id_category', $id)
+        $update = Category::where('id', $id)
                         ->update([
-                            'name_category' => $req->name_category
+                            'category' => $req->category
                         ]);
         
         // Track Activity Account
@@ -110,10 +110,10 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         // Track Activity Account
-        $category = Category::where('id_category', $id)->first();
-        \Record::track('Menghapus Kategori '.$category->name_category);
+        $category = Category::where('id', $id)->first();
+        \Record::track('Menghapus Kategori '.$category->category);
 
-        $destroy = Category::where('id_category', $id)->delete();
+        $destroy = Category::where('id', $id)->delete();
 
         return redirect()->back()->withToastSuccess('Berhasil menghapus data!');
     }

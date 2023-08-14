@@ -25,9 +25,9 @@ class StaticAdmin extends Component
      */
     public function render()
     {
-        $data['guru_count'] = User::where('id_role', 2)->count();
-        $data['siswa_count'] = User::where('id_role', 3)->count();
-        $data['penguji_count'] = User::where('id_role', 4)->count();
+        $data['guru_count'] = User::where('role_id', 2)->count();
+        $data['siswa_count'] = User::where('role_id', 3)->count();
+        $data['penguji_count'] = User::where('role_id', 4)->count();
         $data['card_count'] = Card::count();
 
         return view('components.card.static-admin', $data);

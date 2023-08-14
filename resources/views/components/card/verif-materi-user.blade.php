@@ -10,7 +10,7 @@
                 </h5>
                 <p class="card-text"><img src="/img/profile/{{ $mat->user->picture }}" class="img-fluid rounded-circle" width="25"> <a href="/bio/{{ str_replace(' ', '-', strtolower($mat->user->name)) }}" style="text-decoration: none; color:black">{{ $mat->user->name }}</a></p>
                 @php
-                    $likes = \DB::table('likes')->where(['id' => $mat->id,'user_id' => Auth::user()->id])->first();
+                    $likes = \DB::table('likes')->where(['card_id' => $mat->id,'user_id' => Auth::user()->id])->first();
                 @endphp
                 <a href="{{ route('user.like.store', ['id' => $mat->id]) }}" class="btn btn-md"><i class="fas fa-heart 
                     @isset($likes)

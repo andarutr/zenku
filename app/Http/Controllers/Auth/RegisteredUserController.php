@@ -43,9 +43,9 @@ class RegisteredUserController extends Controller
             $request->only(['name','email','password']), [
                 'password' => bcrypt($request->password),
                 'picture' => 'user.png', 
-                'id_role' => 3,
-                'id_provinsi' => 17,
-                'id_kota_administrasi' => 1
+                'role_id' => 3,
+                'provinsi' => 'DKI Jakarta',
+                'kota_administrasi' => 'Jakarta Timur'
             ])
         );
 

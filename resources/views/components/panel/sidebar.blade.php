@@ -4,9 +4,7 @@
     </a>
     <hr class="sidebar-divider my-0">
     <center>
-      <img src="/img/profile/{{ Auth::user()->picture }}" width="100" class="img-fluid rounded-circle mt-3 mb-3">
-      <h5>{{ Auth::user()->name }}</h5>
-      <p>{{ Auth::user()->email }}</p>
+      <img src="/img/zenku.png" width="100" class="img-fluid rounded-circle mt-3 mb-3">
     </center>
     @if(Auth::user()->role->role === 'User')
     <div class="sidebar-heading mt-3">
@@ -21,7 +19,7 @@
       <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           @foreach($categories as $ctg)
-          <a class="collapse-item" href="/user/kategori/{{ $ctg->id_category }}/{{ strtolower($ctg->name_category) }}">{{ $ctg->name_category }}</a>
+          <a class="collapse-item" href="/user/kategori/{{ $ctg->id }}/{{ strtolower($ctg->category) }}">{{ $ctg->category }}</a>
           @endforeach
         </div>
       </div>

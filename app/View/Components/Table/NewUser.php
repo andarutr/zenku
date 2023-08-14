@@ -24,7 +24,7 @@ class NewUser extends Component
      */
     public function render()
     {
-        $users = User::where('id_role', 3)->limit(5)->get();
+        $users = User::where('role_id', 3)->limit(5)->get();
         return view('components.table.new-user', compact('users'));
     }
 }

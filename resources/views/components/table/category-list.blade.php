@@ -15,13 +15,13 @@
         <tbody>
             @foreach($categories as $ctg)
             <tr>
-                <td><a href="#">{{ $ctg->id_category }}</a></td>
-                <td>{{ $ctg->name_category }}</td>
+                <td><a href="#">{{ $ctg->id }}</a></td>
+                <td>{{ $ctg->category }}</td>
                 <td>
-                    <a href="{{ route('admin.kategori.edit', ['kategori' => $ctg->id_category]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>&nbsp;
+                    <a href="{{ route('admin.kategori.edit', ['kategori' => $ctg->id]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>&nbsp;
                 </td>
                 <td>
-                  <form action="{{ route('admin.kategori.destroy', ['kategori' => $ctg->id_category]) }}" method="POST">@csrf @method('delete')
+                  <form action="{{ route('admin.kategori.destroy', ['kategori' => $ctg->id]) }}" method="POST">@csrf @method('delete')
                     <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Yakin ingin menghapus kategori ?')"><i class="fas fa-trash"></i></button>
                   </form>
                 </td>

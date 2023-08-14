@@ -28,7 +28,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 // Route for Bio (All Roles)
-Route::get('/bio/{name}', [BiodataController::class, 'show']);
+Route::get('/bio/{name}', [BiodataController::class, 'show'])->middleware('auth');
 
 // Route for Admin Role
 require __DIR__.'/admin.php';

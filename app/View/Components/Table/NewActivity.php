@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Table;
 
-use App\Models\Views\VActivity;
+use App\Models\Activity;
 use Illuminate\View\Component;
 
 class NewActivity extends Component
@@ -24,7 +24,7 @@ class NewActivity extends Component
      */
     public function render()
     {
-        $activities = VActivity::orderByDesc('id_activity')                      
+        $activities = Activity::orderByDesc('id')                      
                                 ->limit(5)
                                 ->get();
 
