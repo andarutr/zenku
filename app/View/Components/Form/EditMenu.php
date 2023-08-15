@@ -3,6 +3,8 @@
 namespace App\View\Components\Form;
 
 use App\Models\Menu;
+use App\Models\Role;
+use App\Models\CategoryMenu;
 use Illuminate\View\Component;
 
 class EditMenu extends Component
@@ -25,12 +27,9 @@ class EditMenu extends Component
      */
     public function render()
     {
-        $data['menu_get'] = Menu::where('id_menu', $this->id)
-                        ->join('category_menu','category_menu.id_category_menu','=','menu.id_category_menu')
-                        ->join('roles','roles.id_role','=','menu.id_role')
-                        ->first();
-        $data['categories'] = \DB::table('category_menu')->get();
-        $data['roles'] = \DB::table('roles')->get();
+        $data['menu_get'] = Menu::where('id', $this->id)->first();
+        $data['categories'] = CategoryMenu::get();
+        $data['roles'] = Role::get();
 
         return view('components.form.edit-menu', $data);
     }

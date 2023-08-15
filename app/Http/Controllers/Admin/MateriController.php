@@ -21,15 +21,14 @@ class MateriController extends Controller
         return view('pages.admin.materi.show', $data);
     }
 
-    public function destroy($id_card)
+    public function destroy($id)
     {
         // Track Activity Account
-        $materi = Card::where('id_card', $id_card)
-                        ->first();
+        $materi = Card::where('id', $id)->first();
                         
         \Record::track('Menghapus Materi - '.$materi->name.' ('.$materi->title_card.')');
 
-        Card::where('id_card', $id_card)->delete();
+        Card::where('id', $id)->delete();
         return redirect()->route('admin.materi.index')->withToastSuccess('Berhasil menghapus data!');
     }
 }

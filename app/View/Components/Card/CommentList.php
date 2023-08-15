@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Card;
 
-use App\Models\Views\VComment;
+use App\Models\Comment;
 use Illuminate\View\Component;
 
 class CommentList extends Component
@@ -24,7 +24,7 @@ class CommentList extends Component
      */
     public function render()
     {
-        $data['comments'] = VComment::orderByDesc('id_comment')->get();
+        $data['comments'] = Comment::orderByDesc('id')->get();
 
         return view('components.card.comment-list', $data);
     }

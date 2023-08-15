@@ -20,19 +20,19 @@
                 @foreach($comments as $comment)
                 <tr>
                     <td>
-                        <a href="/img/profile/{{ $comment->picture }}" data-fancybox>
-                            <img src="/img/profile/{{ $comment->picture }}" width="50" class="rounded-circle">
+                        <a href="/img/profile/{{ $comment->user->picture }}" data-fancybox>
+                            <img src="/img/profile/{{ $comment->user->picture }}" width="50" class="rounded-circle">
                         </a>
                     </td>
-                    <td>{{ $comment->name }}</td>
-                    <td>{{ $comment->title }}</td>
+                    <td>{{ $comment->user->name }}</td>
+                    <td>{{ $comment->card->title_card }}</td>
                     <td>{{ $comment->comment }}</td>
                     <td>{{ \Carbon\Carbon::parse($comment->created_at)->format('d F Y H:i') }}</td>
                     <td>
-                      <a href="{{ route('admin.komentar.show', $comment->id_comment) }}" class="btn btn-md btn-primary"><i class="fas fa-eye"></i></a>
+                      <a href="{{ route('admin.komentar.show', $comment->id) }}" class="btn btn-md btn-primary"><i class="fas fa-eye"></i></a>
                     </td>
                     <td>
-                      <form action="{{ route('admin.komentar.destroy', $comment->id_comment) }}" method="POST">@csrf @method('delete')
+                      <form action="{{ route('admin.komentar.destroy', $comment->id) }}" method="POST">@csrf @method('delete')
                         <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Yakin ingin menghapus komentar ?')"><i class="fas fa-trash"></i></button>
                       </form>
                     </td>

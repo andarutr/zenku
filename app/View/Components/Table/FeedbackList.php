@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Table;
 
-use App\Models\Views\VFeedback;
+use App\Models\Feedback;
 use Illuminate\View\Component;
 
 class FeedbackList extends Component
@@ -24,7 +24,7 @@ class FeedbackList extends Component
      */
     public function render()
     {
-        $data['feedbacks'] = VFeedback::orderByDesc('id_feedback')->paginate(8);
+        $data['feedbacks'] = Feedback::orderByDesc('id')->paginate(8);
 
         return view('components.table.feedback-list', $data);
     }

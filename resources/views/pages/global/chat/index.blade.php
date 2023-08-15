@@ -10,7 +10,7 @@
     @foreach($chat_from_me as $chat)
     @php
     $count_chat = DB::table('messages')->where('session_chat', $chat->session_chat)->count();
-    $is_online = DB::table('chats')->where('id_user', Auth::user()->id)->count();
+    $is_online = DB::table('chats')->where('user_id', Auth::user()->id)->count();
     @endphp
     <div class="col-lg-8 mx-auto">
         <div class="card shadow mt-3">

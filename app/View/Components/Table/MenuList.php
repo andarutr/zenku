@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Table;
 
-use App\Models\Views\VMenu;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\View\Component;
 
@@ -25,7 +25,7 @@ class MenuList extends Component
      */
     public function render()
     {
-        $menus = VMenu::all();
+        $menus = Menu::all();
 
         return view('components.table.menu-list', compact('menus'));
     }

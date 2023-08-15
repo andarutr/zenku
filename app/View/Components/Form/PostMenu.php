@@ -2,6 +2,8 @@
 
 namespace App\View\Components\Form;
 
+use App\Models\Role;
+use App\Models\CategoryMenu;
 use Illuminate\View\Component;
 
 class PostMenu extends Component
@@ -23,8 +25,8 @@ class PostMenu extends Component
      */
     public function render()
     {
-        $data['categories'] = \DB::table('category_menu')->get();
-        $data['roles'] = \DB::table('roles')->get();
+        $data['categories'] = CategoryMenu::get();
+        $data['roles'] = Role::get();
 
         return view('components.form.post-menu', $data);
     }

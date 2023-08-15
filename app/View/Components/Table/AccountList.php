@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Table;
 
-use App\Models\Views\VUser;
+use App\Models\User;
 use Illuminate\View\Component;
 
 class AccountList extends Component
@@ -24,7 +24,7 @@ class AccountList extends Component
      */
     public function render()
     {
-        $data['users'] = VUser::get();
+        $data['users'] = User::get();
         return view('components.table.account-list', $data);
     }
 }

@@ -6,7 +6,7 @@
 <div class="row">
     <a href="/{{ Request::segment(1) }}/chat" class="btn btn-success ml-3">Kembali</a>
     <div class="col-lg-12 text-center">
-        <span class="badge bg-warning text-white p-1" style="font-size: 15px">{{ $user->name_role }}</span>&nbsp;
+        <span class="badge bg-warning text-white p-1" style="font-size: 15px">{{ $user->role->role }}</span>&nbsp;
         <img src="/img/profile/{{ $user->picture }}" class="img-fluid rounded-circle" width="100" height="100">&nbsp;
         @if(Cache::has('user-is-online-' . $user->id))
         <span class="badge bg-primary text-white">Online</span> 

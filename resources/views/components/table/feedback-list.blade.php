@@ -19,16 +19,16 @@
                     @foreach($feedbacks as $feed)
                     <tr>
                         <td>
-                            <a href="/img/profile/{{ $feed->picture }}" data-fancybox>
-                                <img src="/img/profile/{{ $feed->picture }}" width="50" class="rounded-circle">
+                            <a href="/img/profile/{{ $feed->user->picture }}" data-fancybox>
+                                <img src="/img/profile/{{ $feed->user->picture }}" width="50" class="rounded-circle">
                             </a>
                         </td>
-                        <td>{{ $feed->name }}</td>
+                        <td>{{ $feed->user->name }}</td>
                         <td>{{ $feed->message }}</td>
                         <td>{{ \Carbon\Carbon::parse($feed->created_at)->format('d F Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($feed->updated_at)->format('d F Y') }}</td>
                         <td>
-                            <form action="{{ route('admin.feedback.destroy', $feed->id_feedback) }}" method="POST">@csrf @method('delete')
+                            <form action="{{ route('admin.feedback.destroy', $feed->id) }}" method="POST">@csrf @method('delete')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus feedback?')"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>

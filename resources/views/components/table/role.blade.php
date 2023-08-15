@@ -15,21 +15,21 @@
         <tbody>
             @foreach($roles as $role)
             <tr>
-                <td>{{ $role->id_role }}</td>
-                <td><a href="#">{{ $role->name_role }}</a></td>
+                <td>{{ $role->id }}</td>
+                <td><a href="#">{{ $role->role }}</a></td>
                 <td>
-                    <button class="btn btn-primary">{{ $role->id_role }}</button>
+                    <button class="btn btn-primary">{{ $role->id }}</button>
                 </td>
                 <td>
-                    @if($role->id_role > 3)
-                    <a href="{{ route('admin.role.edit', ['role' => $role->id_role]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>&nbsp;
+                    @if($role->id > 3)
+                    <a href="{{ route('admin.role.edit', ['role' => $role->id]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>&nbsp;
                     @else
                     <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>&nbsp;
                     @endif
                 </td>
                 <td>
-                    @if($role->id_role > 3)
-                    <form action="{{ route('admin.role.destroy', ['role' => $role->id_role]) }}" method="POST">@csrf @method('delete')
+                    @if($role->id > 3)
+                    <form action="{{ route('admin.role.destroy', ['role' => $role->id]) }}" method="POST">@csrf @method('delete')
                         <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Yakin ingin menghapus role ?')"><i class="fas fa-trash"></i></button>
                     </form>
                     @else

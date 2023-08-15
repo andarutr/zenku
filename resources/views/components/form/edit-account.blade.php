@@ -28,20 +28,18 @@
         </div>
         <div class="form-group">
             <label for="provinsi">Provinsi</label>
-            <select name="id_provinsi" class="form-control">
-                <option value="{{ $user->id_provinsi }}">{{ $user->name_provinsi }}</option>
-                @foreach($provinsi as $prv)
-                <option value="{{ $prv->id_provinsi }}">{{ $prv->name_provinsi }}</option>
-                @endforeach
+            <select name="provinsi" class="form-control">
+                <option value="{{ $user->provinsi }}">{{ $user->provinsi }}</option>
+                <option value="DKI Jakarta">DKI Jakarta</option>
             </select>
         </div>
         <div class="form-group">
             <label for="kota_administrasi">Kota Administrasi</label>
-            <select name="id_kota_administrasi" class="form-control">
-                <option value="{{ $user->id_kota_administrasi }}">{{ $user->name_kota_administrasi }}</option>
-                @foreach($kota_administrasi as $adm)
-                <option value="{{ $adm->id_kota_administrasi }}">{{ $adm->name_kota_administrasi }}</option>
-                @endforeach
+            <select name="kota_administrasi" class="form-control">
+                <option value="{{ $user->kota_administrasi }}">{{ $user->kota_administrasi }}</option>
+                <option value="Jakarta Timur">Jakarta Timur</option>
+                <option value="Jakarta Barat">Jakarta Barat</option>
+                <option value="Jakarta Pusat">Jakarta Pusat</option>
             </select>
         </div>
         <div class="form-group">

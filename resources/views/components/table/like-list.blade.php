@@ -17,12 +17,12 @@
                     @foreach($likes as $like)
                     <tr>
                         <td>
-                            <a href="/img/profile/{{ $like->picture }}" data-fancybox>
-                                <img src="/img/profile/{{ $like->picture }}" width="50" class="rounded-circle">
+                            <a href="/img/profile/{{ $like->user->picture }}" data-fancybox>
+                                <img src="/img/profile/{{ $like->user->picture }}" width="50" class="rounded-circle">
                             </a>
                         </td>
-                        <td>{{ $like->name }}</td>
-                        <td>{{ $like->title }}</td>
+                        <td>{{ $like->user->name }}</td>
+                        <td>{{ $like->card->title_card }}</td>
                         <td>{{ \Carbon\Carbon::parse($like->created_at)->format('d F Y') }}</td>
                     </tr>
                     @endforeach

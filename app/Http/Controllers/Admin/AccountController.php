@@ -49,9 +49,9 @@ class AccountController extends Controller
             'email' => $req->email,
             'password' => bcrypt('zenku123'),
             'picture' => 'user.png', 
-            'id_role' => $req->id_role,
-            'id_provinsi' => 17,
-            'id_kota_administrasi' => 1
+            'role_id' => $req->id_role,
+            'provinsi' => 'DKI Jakarta',
+            'kota_administrasi' => 'Jakarta Timur'
         ]);
 
         return redirect()->route('admin.account.index')->withToastSuccess('Berhasil menambah akun!');
@@ -103,8 +103,8 @@ class AccountController extends Controller
             'birthday' => $req->birthday,
             'whatsapp' => $req->whatsapp,
             'alamat' => $req->alamat,
-            'id_provinsi' => $req->id_provinsi,
-            'id_kota_administrasi' => $req->id_kota_administrasi,
+            'provinsi' => $req->provinsi,
+            'kota_administrasi' => $req->kota_administrasi,
             'kode_pos' => $req->kode_pos,
             'status_kenegaraan' => $req->status_kenegaraan,
             'updated_at' => now()

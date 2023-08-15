@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Table;
 
+use App\Models\Role as Roles;
 use Illuminate\View\Component;
 
 class Role extends Component
@@ -23,7 +24,7 @@ class Role extends Component
      */
     public function render()
     {
-        $roles = \DB::table('roles')->paginate(5);
+        $roles = Roles::paginate(5);
 
         return view('components.table.role', compact('roles'));
     }

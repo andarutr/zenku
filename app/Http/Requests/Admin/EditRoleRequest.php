@@ -24,8 +24,8 @@ class EditRoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_role' => 'required',
-            'name_role' => 'required',
+            'id' => 'required',
+            'role' => 'required',
         ];
     }
 }

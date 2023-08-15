@@ -18,14 +18,14 @@
             @foreach($menus as $mn)
             <tr>
                 <td><a href="#">{{ $mn->name_menu }}</a></td>
-                <td>{{ $mn->category }}</td>
-                <td>{{ $mn->role }}</td>
+                <td>{{ $mn->category_menu->category_menu }}</td>
+                <td>{{ $mn->role->role }}</td>
                 <td>{{ $mn->url_menu }}</td>
                 <td>
-                  <a href="{{ route('admin.menu.edit', ['menu' => $mn->id_menu]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>&nbsp;
+                  <a href="{{ route('admin.menu.edit', ['menu' => $mn->id]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>&nbsp;
                 </td>
                 <td>
-                  <form action="{{ route('admin.menu.destroy', ['menu' => $mn->id_menu]) }}" method="POST">@csrf @method('delete')
+                  <form action="{{ route('admin.menu.destroy', ['menu' => $mn->id]) }}" method="POST">@csrf @method('delete')
                     <button type="submit" class="btn btn-md btn-danger" onclick="return confirm('Yakin ingin menghapus menu ?')"><i class="fas fa-trash"></i></button>
                   </form>
                 </td>

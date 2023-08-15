@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Card;
 
-use App\Models\Views\VComment;
+use App\Models\Comment;
 use Illuminate\View\Component;
 
 class CommentDetail extends Component
@@ -25,7 +25,7 @@ class CommentDetail extends Component
      */
     public function render()
     {
-        $data['comment'] = VComment::where('id_comment', $this->id)->first();
+        $data['comment'] = Comment::where('id', $this->id)->first();
 
         return view('components.card.comment-detail', $data);
     }

@@ -24,8 +24,8 @@ class PostRoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_role' => 'required|unique:roles',
-            'name_role' => 'required|unique:roles',
+            'id' => 'required|unique:roles',
+            'role' => 'required|unique:roles',
         ];
     }
 }

@@ -27,8 +27,8 @@ class MenuController extends Controller
 
         $create = Menu::create([
             'name_menu' => $req->name_menu,
-            'id_category_menu' => $req->id_category_menu,
-            'id_role' => $req->id_role,
+            'category_menu_id' => $req->category_menu,
+            'role_id' => $req->role,
             'icon_menu' => $req->icon_menu,
             'url_menu' => $req->url_menu,
         ]);
@@ -47,15 +47,15 @@ class MenuController extends Controller
         return view('pages.admin.management.menu_edit', $data);
     }
 
-    public function update(MenuRequest $req, $id_menu)
+    public function update(MenuRequest $req, $id)
     {
         $req->validated();
 
-        $create = Menu::where('id_menu', $id_menu)
+        $create = Menu::where('id', $id)
                     ->update([
                         'name_menu' => $req->name_menu,
-                        'id_category_menu' => $req->id_category_menu,
-                        'id_role' => $req->id_role,
+                        'category_menu_id' => $req->category_menu,
+                        'role_id' => $req->role,
                         'icon_menu' => $req->icon_menu,
                         'url_menu' => $req->url_menu,
                     ]);
@@ -66,13 +66,13 @@ class MenuController extends Controller
         return redirect()->route('admin.menu.index')->withToastSuccess('Berhasil memperbarui menu!');
     }
 
-    public function destroy($id_menu)
+    public function destroy($id)
     {
         // Track Activity Account
-        $menu = Menu::where('id_menu', $id_menu)->first();
+        $menu = Menu::where('id', $id)->first();
         \Record::track('Menghapus Menu '.$menu->name_menu);
 
-        Menu::where('id_menu', $id_menu)->delete();
+        Menu::where('id', $id)->delete();
 
         return redirect()->back()->withToastSuccess('Berhasil menghapus data!');
     }

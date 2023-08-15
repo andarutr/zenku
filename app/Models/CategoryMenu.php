@@ -4,16 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class CategoryMenu extends Model
 {
+    protected $table = 'category_menu';
+
     protected $guarded = [];
-
+    
     public $timestamps = FALSE;
-
-    public function user()
-    {
-        return $this->hasMany(User::class);
-    }
 
     public function menu()
     {

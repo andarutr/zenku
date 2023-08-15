@@ -15,7 +15,7 @@
             <select name="id_role" class="form-control">
                 <option value="">Pilih</option>
                 @foreach($roles as $role)
-                <option value="{{ $role->id_role }}">{{ $role->name_role }}</option>
+                <option value="{{ $role->id }}">{{ $role->role }}</option>
                 @endforeach
             </select>
             @error('id_role')<p class="text-danger">{{ $message }}</p>@enderror

@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Form;
 
+use App\Models\Role;
 use Illuminate\View\Component;
 
 class EditRole extends Component
@@ -24,9 +25,7 @@ class EditRole extends Component
      */
     public function render()
     {
-        $data['role'] = \DB::table('roles')
-                    ->where('id_role', $this->id)
-                    ->first();
+        $data['role'] = Role::where('id', $this->id)->first();
 
         return view('components.form.edit-role', $data);
     }

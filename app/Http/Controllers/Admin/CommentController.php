@@ -22,14 +22,14 @@ class CommentController extends Controller
         return view('pages.admin.comment.show', $data);
     }
 
-    public function destroy($id_comment)
+    public function destroy($id)
     {
         // Track Activity Account
-        $comment = Comment::where('id_comment', $id_comment)->first();
+        $comment = Comment::where('id', $id)->first();
                             
         \Record::track('Menghapus Komentar '.$comment->name);
 
-        Comment::where('id_comment', $id_comment)->delete();
+        Comment::where('id', $id)->delete();
         return redirect()->route('admin.komentar.index')->withToastSuccess('Berhasil menghapus komentar!');
     }
 }

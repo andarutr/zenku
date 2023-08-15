@@ -16,7 +16,7 @@
                 @foreach($activity as $act)
                 <tr>
                     <td>
-                        <img src="/img/profile/{{ $act->picture }}" width="50" class="img-fluid rounded-circle">&nbsp; {{ $act->name }}
+                        <img src="/img/profile/{{ $act->user->picture }}" width="50" class="img-fluid rounded-circle">&nbsp; {{ $act->user->name }}
                     </td>
                     <td>{{ $act->activity }}</td>
                     <td>{{ \Carbon\Carbon::parse($act->created_at)->format('d F Y H:i') }}</td>

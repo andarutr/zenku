@@ -25,8 +25,8 @@ class MenuRequest extends FormRequest
     {
         return [
             'name_menu' => 'required',
-            'id_category_menu' => 'required',
-            'id_role' => 'required',
+            'category_menu' => 'required',
+            'role' => 'required',
             'icon_menu' => 'required',
             'url_menu' => 'required',
         ];

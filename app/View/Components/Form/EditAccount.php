@@ -2,10 +2,8 @@
 
 namespace App\View\Components\Form;
 
-use App\Models\Provinsi;
-use App\Models\Views\VUser;
+use App\Models\User;
 use Illuminate\View\Component;
-use App\Models\KotaAdministrasi;
 
 class EditAccount extends Component
 {
@@ -27,9 +25,7 @@ class EditAccount extends Component
      */
     public function render()
     {
-        $data['provinsi'] = Provinsi::all();
-        $data['kota_administrasi'] = KotaAdministrasi::all();
-        $data['user'] = VUser::where('id', $this->id)->first();
+        $data['user'] = User::where('id', $this->id)->first();
 
         return view('components.form.edit-account', $data);
     }

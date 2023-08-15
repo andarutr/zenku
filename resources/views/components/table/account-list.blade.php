@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             @foreach($users as $user)
-            @if($user->role === 'Guru' OR $user->role === 'User')
+            @if($user->role->role === 'Guru' OR $user->role->role === 'User')
             <tr>
                 <td>
                     <img src="/img/profile/{{ $user->picture }}" class="img-fluid rounded-circle" width="50"/>
@@ -25,7 +25,7 @@
                 <td>{{ $user->name }} <a href="/bio/{{ str_replace(' ', '-', strtolower($user->name)) }}" class="badge bg-primary text-white"><i class="fas fa-eye"></i></a> <a href="/admin/ganti-password/akun/{{ $user->id }}" class="badge bg-warning text-white"><i class="fas fa-lock"></i></a></td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->whatsapp }}</td>
-                <td>{{ $user->role }}</td>
+                <td>{{ $user->role->role }}</td>
                 <td>
                   <a href="{{ route('admin.account.edit', ['account' => $user->id]) }}" class="btn btn-md btn-success"><i class="fas fa-edit"></i></a>&nbsp;
                 </td>

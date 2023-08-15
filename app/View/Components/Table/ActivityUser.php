@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Table;
 
-use App\Models\Views\VActivity;
+use App\Models\Activity;
 use Illuminate\View\Component;
 
 class ActivityUser extends Component
@@ -24,7 +24,7 @@ class ActivityUser extends Component
      */
     public function render()
     {
-        $data['activity'] = VActivity::orderByDesc('id_activity')->paginate(8);
+        $data['activity'] = Activity::orderByDesc('id')->paginate(8);
 
         return view('components.table.activity-user', $data);
     }

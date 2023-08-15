@@ -7,23 +7,23 @@
         </div>
         <div class="form-group">
             <label for="category">Kategori</label>
-            <select name="id_category_menu" id="category" class="form-control">
-                <option value="{{ $menu_get->id_category_menu }}">{{ $menu_get->name_category_menu }}</option>
+            <select name="category_menu" id="category_menu" class="form-control">
+                <option value="{{ $menu_get->category_menu->id }}">{{ $menu_get->category_menu->category_menu }}</option>
                 @foreach($categories as $category)
-                <option value="{{ $category->id_category_menu }}">{{ $category->name_category_menu }}</option>
+                <option value="{{ $category->id }}">{{ $category->category_menu }}</option>
                 @endforeach
             </select>
-            @error('id_category_menu')<p class="text-danger">{{ $message }}</p>@enderror
+            @error('category_menu')<p class="text-danger">{{ $message }}</p>@enderror
         </div>
         <div class="form-group">
             <label for="roles">Role</label>
-            <select name="id_role" id="roles" class="form-control">
-                <option value="{{ $menu_get->id_role }}">{{ $menu_get->name_role }}</option>
+            <select name="role" id="role" class="form-control">
+                <option value="{{ $menu_get->role->id }}">{{ $menu_get->role->role }}</option>
                 @foreach($roles as $role)
-                <option value="{{ $role->id_role }}">{{ $role->name_role }}</option>
+                <option value="{{ $role->id }}">{{ $role->role }}</option>
                 @endforeach
             </select>
-            @error('id_role')<p class="text-danger">{{ $message }}</p>@enderror
+            @error('role')<p class="text-danger">{{ $message }}</p>@enderror
         </div>
         <div class="form-group">
             <label for="icon_menu">Icon</label>

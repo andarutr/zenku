@@ -20,9 +20,9 @@ class FeedbackController extends Controller
         return redirect()->back()->withToastSuccess('Berhasil menghapus feedback!');
     }
 
-    public function destroy($id_feedback)
+    public function destroy($id)
     {
-        Feedback::where('id_feedback', $id_feedback)->delete();
+        Feedback::where('id', $id)->delete();
         return redirect()->back()->withToastSuccess('Berhasil menghapus feedback!');
     }
 }

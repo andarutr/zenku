@@ -33,9 +33,7 @@ class ChatController extends Controller
     public function create_topic(Request $req, $name, $session_chat)
     {
         $data['menu'] = 'Chat';
-        $data['user'] = User::where('name', $name)
-                    ->join('roles','roles.id_role','=','users.id_role')
-                    ->first();
+        $data['user'] = User::where('name', $name)->first();
         $data['session_chat'] = $session_chat;
 
         return view('pages.global.chat.create_topic', $data);            
@@ -49,7 +47,7 @@ class ChatController extends Controller
 
         $store = Chat::create([
                         'session_chat' => $req->session_chat,
-                        'id_user' => Auth::user()->id,
+                        'user_id' => Auth::user()->id,
                         'topic_chat' => $req->topic_chat,
                         'linked_user' => $req->linked_user,
                         'created_at' => now(),
@@ -66,12 +64,12 @@ class ChatController extends Controller
         $data['status_user'] = Chat::where('session_chat', $session_chat)->first();
         $data['user'] = Chat::where('session_chat', $session_chat)
                             ->join('users','users.id','=','chats.linked_user')
-                            ->join('roles','roles.id_role','=','users.id_role')
-                            ->select('users.name','users.picture','chats.*','roles.name_role')
+                            ->join('roles','roles.id','=','users.role_id')
+                            ->select('users.name','users.picture','chats.*','roles.role')
                             ->first();
         $data['messages'] = Message::orderBy('created_at','asc')
                             ->where('session_chat', $session_chat)
-                            ->join('users','users.id','=','messages.id_user')
+                            ->join('users','users.id','=','messages.user_id')
                             ->select('users.name','users.picture','messages.*')
                             ->get();
         
@@ -84,13 +82,13 @@ class ChatController extends Controller
         $data['status_chat'] = 'From You';
         $data['status_user'] = Chat::where('session_chat', $session_chat)->first();
         $data['user'] = Chat::where('session_chat', $session_chat)
-                        ->join('users','users.id','=','chats.id_user')
-                        ->join('roles','roles.id_role','=','users.id_role')
-                        ->select('users.name','users.picture','chats.*','roles.name_role')
+                        ->join('users','users.id','=','chats.user_id')
+                        ->join('roles','roles.id','=','users.role_id')
+                        ->select('users.name','users.picture','chats.*','roles.role')
                         ->first();
         $data['messages'] = Message::orderBy('created_at','asc')
                             ->where('session_chat', $session_chat)
-                            ->join('users','users.id','=','messages.id_user')
+                            ->join('users','users.id','=','messages.user_id')
                             ->select('users.name','users.picture','messages.*')
                             ->get();
         
@@ -104,7 +102,7 @@ class ChatController extends Controller
         ]);
 
         $store_message = Message::create([
-                                'id_user' => Auth::user()->id,
+                                'user_id' => Auth::user()->id,
                                 'session_chat' => $req->session_chat,
                                 'message' => $req->message,
                                 'updated_at' => now(),

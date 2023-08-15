@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Table;
 
-use App\Models\Views\VCard;
+use App\Models\Card;
 use Illuminate\View\Component;
 
 class MateriList extends Component
@@ -24,7 +24,7 @@ class MateriList extends Component
      */
     public function render()
     {
-        $data['materi'] = VCard::all();
+        $data['materi'] = Card::all();
 
         return view('components.table.materi-list', $data);
     }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\PostRoleRequest;
 use App\Http\Requests\Admin\EditRoleRequest;
+use App\Http\Requests\Admin\PostRoleRequest;
 
 class RoleAccessController extends Controller
 {
@@ -26,9 +27,9 @@ class RoleAccessController extends Controller
     {
         $req->validated();
 
-        $create = \DB::table('roles')->insert([
-            'id_role' => $req->id_role,
-            'name_role' => $req->name_role,
+        $create = Role::create([
+            'id' => $req->id,
+            'role' => $req->role,
         ]);
 
         return redirect()->route('admin.role.index')->withToastSuccess('Berhasil menambah role!');
@@ -42,23 +43,24 @@ class RoleAccessController extends Controller
         return view('pages.admin.account.role_edit', $data);
     }
 
-    public function update(EditRoleRequest $req, $id_role)
+    public function update(EditRoleRequest $req, $id)
     {
         $req->validated();
 
         $update = \DB::table('roles')
-                    ->where('id_role', $id_role)
+                    ->where('id', $id)
                     ->update([
-                        'id_role' => $req->id_role,
-                        'name_role' => $req->name_role,
+                        'id' => $req->id,
+                        'role' => $req->role,
                     ]);
 
         return redirect()->route('admin.role.index')->withToastSuccess('Berhasil memperbarui role!');
     }
     
-    public function destroy($id_role)
+    public function destroy($id)
     {
-        \DB::table('roles')->where('id_role', $id_role)->delete();
+        $destroy = Role::where('id', $id)->delete();
+        
         return redirect()->route('admin.role.index')->withToastSuccess('Berhasil menghapus role!');
     }
 }
