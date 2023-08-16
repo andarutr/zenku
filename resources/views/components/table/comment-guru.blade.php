@@ -18,16 +18,16 @@
             @foreach($comments as $comment)
             <tr>
                 <td>
-                    <a href="/img/profile/{{ $comment->picture }}" data-fancybox>
-                        <img src="/img/profile/{{ $comment->picture }}" width="50" class="rounded-circle">
+                    <a href="/img/profile/{{ $comment->user->picture }}" data-fancybox>
+                        <img src="/img/profile/{{ $comment->user->picture }}" width="50" class="rounded-circle">
                     </a>
                 </td>
-                <td>{{ $comment->name }}</td>
-                <td>{{ $comment->title }}</td>
+                <td>{{ $comment->user->name }}</td>
+                <td>{{ $comment->card->title_card }}</td>
                 <td>{{ $comment->comment }}</td>
-                <td>{{ $comment->created_at }}</td>
+                <td>{{ \Carbon\Carbon::parse($comment->created_at)->format('d F Y') }}</td>
                 <td>
-                    <a href="{{ route('guru.komentar.show', $comment->id_comment) }}" class="btn btn-md btn-primary"><i class="fas fa-eye"></i></a>
+                    <a href="{{ route('guru.komentar.show', $comment->id) }}" class="btn btn-md btn-primary"><i class="fas fa-eye"></i></a>
                 </td>
             </tr>
             @endforeach

@@ -2,6 +2,8 @@
 
 namespace App\View\Components\Card;
 
+use App\Models\Forum;
+use App\Models\ContentForum;
 use Illuminate\View\Component;
 
 class ForumDetail extends Component
@@ -24,21 +26,9 @@ class ForumDetail extends Component
      */
     public function render()
     {
-        $data['forum'] = \DB::table('forums')
-                    ->where('url_forum', $this->url)
-                    ->join('users','users.id','=','forums.id_user')
-                    ->select('forums.*','users.name','users.picture')
-                    ->first();
-        $data['visit'] = \DB::table('forums')
-                    ->where('url_forum', $this->url)
-                    ->increment('views_forum');
-
-        $data['contents'] = \DB::table('content_forums')
-                        ->where('url_forum', $this->url)
-                        ->join('forums','forums.id_forum','=','content_forums.id_forum')
-                        ->join('users','users.id','=','content_forums.id_user')
-                        ->select('content_forums.*','users.name', 'users.picture','forums.title_forum')
-                        ->get();
+        $data['forum'] = Forum::where('url_forum', $this->url)->first();
+        $data['visit'] = Forum::where('url_forum', $this->url)->increment('views_forum');
+        $data['contents'] = ContentForum::where('forum_id', $data['forum']->id)->get();
 
         return view('components.card.forum-detail', $data);
     }

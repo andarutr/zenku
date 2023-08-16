@@ -26,7 +26,7 @@ class PostMateriRequest extends FormRequest
         return [
             'title_card' => 'required|unique:cards',
             'picture_card' => 'required',
-            'id_category' => 'required',
+            'category_id' => 'required',
             'video_card' => 'required',
             'description' => 'required',
         ];

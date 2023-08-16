@@ -3,7 +3,7 @@
 namespace App\View\Components\Form;
 
 use App\Models\Category;
-use App\Models\Views\VCard;
+use App\Models\Card;
 use Illuminate\View\Component;
 
 class EditMateri extends Component
@@ -26,7 +26,7 @@ class EditMateri extends Component
      */
     public function render()
     {
-        $data['materi'] = VCard::where('id_card', $this->id)->first();
+        $data['materi'] = Card::where('id', $this->id)->first();
         $data['categories'] = Category::all();
         
         return view('components.form.edit-materi', $data);

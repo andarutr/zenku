@@ -7,10 +7,6 @@
                         <div class="text-xs font-weight-bold text-uppercase mb-1">GURU 
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $guru_count }}</div>
-                        <div class="mt-2 mb-0 text-muted text-xs">
-                            <span class="text-success mr-2">
-                            <span>Selengkapnya</span>
-                        </div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-graduation-cap fa-2x text-primary"></i>
@@ -27,9 +23,6 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">SISWA</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $siswa_count }}</div>
-                        <div class="mt-2 mb-0 text-muted text-xs">
-                            <span class="text-success mr-2">Selengkapnya</span>
-                        </div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-users fa-2x text-success"></i>
@@ -46,9 +39,6 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">PENGUJI</div>
                         <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $penguji_count }}</div>
-                        <div class="mt-2 mb-0 text-muted text-xs">
-                            <span class="text-success mr-2">Selengkapnya</span>
-                        </div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-user-tie fa-2x text-info"></i>
@@ -66,9 +56,6 @@
                         <div class="text-xs font-weight-bold text-uppercase mb-1">MATERI
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $card_count }}</div>
-                        <div class="mt-2 mb-0 text-muted text-xs">
-                            <span class="text-danger mr-2">Selengkapnya</span>
-                        </div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-book fa-2x text-warning"></i>

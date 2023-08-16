@@ -40,7 +40,7 @@ class MateriController extends Controller
         $file->move('img/materi/', $file->getClientOriginalName());
 
         $materi = Card::create(array_merge($req->all(), [
-                            'id_user' => Auth::user()->id,
+                            'user_id' => Auth::user()->id,
                             'picture_card' => $file->getClientOriginalName(),
                             'url_card' => str_replace(' ','-',$req->title_card),
                             'is_active' => 'not_active',
@@ -72,21 +72,21 @@ class MateriController extends Controller
             $file = $req->file('picture_card');
             $file->move('img/materi/', $file->getClientOriginalName());
 
-            Card::where('id_card', $id_card)
+            Card::where('id', $id_card)
                     ->update(array_merge($req->except(['_token','_method']), [
-                        'id_user' => Auth::user()->id,
+                        'user_id' => Auth::user()->id,
                         'picture_card' => $file->getClientOriginalName(),
                         'url_card' => str_replace(' ','-',$req->title_card),
-                        'id_category' => $req->id_category,
+                        'category_id' => $req->category_id,
                         'updated_at' => now(),
                     ])
                 );
         }else{
-            Card::where('id_card', $id_card)
+            Card::where('id', $id_card)
                     ->update(array_merge($req->except(['_token','_method']), [
-                        'id_user' => Auth::user()->id,
+                        'user_id' => Auth::user()->id,
                         'url_card' => str_replace(' ','-',$req->title_card),
-                        'id_category' => $req->id_category,
+                        'category_id' => $req->category_id,
                         'updated_at' => now(),
                     ])
                 );
@@ -101,13 +101,12 @@ class MateriController extends Controller
     public function destroy($id_card)
     {
         // Track Activity Account
-        $materi = Card::where('id_card', $id_card)
-                        ->join('users','users.id','=','cards.id_user')
-                        ->select('users.name','cards.title_card')
-                        ->first();
-        \Record::track('Menghapus Materi - '.$materi->name.' ('.$materi->title_card.')');
+        $materi = Card::where('id', $id_card)->first();
 
-        Card::where(['id_card' => $id_card, 'id_user' => Auth::user()->id])->delete();
+        \Record::track('Menghapus Materi - '.$materi->user->name.' ('.$materi->user->title_card.')');
+
+        $destroy = Card::where(['id' => $id_card, 'user_id' => Auth::user()->id])->delete();
+
         return redirect()->route('guru.materi.index')->withToastSuccess('Berhasil menghapus data!');
     }
 }

@@ -15,13 +15,13 @@
         </div>
         <div class="form-group">
             <label for="foto">Kategori</label>
-            <select class="form-control" name="id_category" id="kategori">
+            <select class="form-control" name="category_id" id="kategori">
                 <option value="">Pilih</option>
                 @foreach($categories as $ctg)
-                <option value="{{ $ctg->id_category }}">{{ $ctg->name_category }}</option>
+                <option value="{{ $ctg->id }}">{{ $ctg->category }}</option>
                 @endforeach
             </select>
-            @error('id_category')<p class="text-danger">{{ $message }}</p>@enderror
+            @error('category_id')<p class="text-danger">{{ $message }}</p>@enderror
         </div>
         <div class="form-group">
             <label for="video">Video</label>

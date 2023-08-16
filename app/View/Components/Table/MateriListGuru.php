@@ -25,9 +25,9 @@ class MateriListGuru extends Component
      */
     public function render()
     {
-        $data['materi'] = Card::where('id_user', Auth::user()->id)
-                        ->orderByDesc('id_card')
-                        ->get();
+        $data['materi'] = Card::where('user_id', Auth::user()->id)
+                                ->orderByDesc('id')
+                                ->get();
                         
         return view('components.table.materi-list-guru', $data);
     }

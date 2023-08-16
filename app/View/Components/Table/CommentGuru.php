@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Table;
 
-use App\Models\Views\VComment;
+use App\Models\Comment;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,9 +25,9 @@ class CommentGuru extends Component
      */
     public function render()
     {
-        $data['comments'] = VComment::where('author', Auth::user()->name)
-                        ->orderByDesc('id_comment')
-                        ->get();
+        $data['comments'] = Comment::where('author_id', Auth::user()->id)
+                                    ->orderByDesc('id')
+                                    ->get();
 
         return view('components.table.comment-guru', $data);
     }

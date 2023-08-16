@@ -1,5 +1,5 @@
 <div>
-    <form action="{{ route('guru.materi.update', ['materi' => $materi->id_card]) }}" method="POST" enctype="multipart/form-data">@csrf @method('put')
+    <form action="{{ route('guru.materi.update', ['materi' => $materi->id]) }}" method="POST" enctype="multipart/form-data">@csrf @method('put')
         <div class="form-group">
             <label for="name">Judul Materi</label>
             <input type="text" class="form-control" name="title_card" id="name" value="{{ $materi->title_card }}">
@@ -14,10 +14,10 @@
         </div>
         <div class="form-group">
             <label for="foto">Kategori</label>
-            <select class="form-control" name="id_category" id="kategori">
-                <option value="{{ $materi->id_category}}">{{ $materi->category}}</option>
+            <select class="form-control" name="category_id" id="kategori">
+                <option value="{{ $materi->category->id}}">{{ $materi->category->category}}</option>
                 @foreach($categories as $ctg)
-                <option value="{{ $ctg->id_category }}">{{ $ctg->name_category }}</option>
+                <option value="{{ $ctg->id }}">{{ $ctg->category }}</option>
                 @endforeach
             </select>
         </div>

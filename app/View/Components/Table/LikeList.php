@@ -28,7 +28,7 @@ class LikeList extends Component
         if(Auth::user()->id === 1){
             $data['likes'] = Like::orderByDesc('id')->paginate(8);
         }else{
-            $data['likes'] = Like::where('author', Auth::user()->name)
+            $data['likes'] = Like::where('author_id', Auth::user()->id)
                                     ->orderByDesc('id')
                                     ->paginate(8);
         }

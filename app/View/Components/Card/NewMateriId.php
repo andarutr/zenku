@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Card;
 
-use App\Models\Views\VCard;
+use App\Models\Card;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,8 +25,8 @@ class NewMateriId extends Component
      */
     public function render()
     {
-        $data['materi'] = VCard::where('id_user', Auth::user()->id)
-                        ->limit(4)->get();
+        $data['materi'] = Card::where('user_id', Auth::user()->id)
+                                ->limit(4)->get();
 
         return view('components.card.new-materi-id', $data);
     }

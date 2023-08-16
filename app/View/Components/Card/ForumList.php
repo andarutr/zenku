@@ -3,6 +3,7 @@
 namespace App\View\Components\Card;
 
 use App\Models\User;
+use App\Models\Forum;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\Cache;
 
@@ -25,11 +26,7 @@ class ForumList extends Component
      */
     public function render()
     {
-        $data['forum'] = \DB::table('forums')
-                        ->orderByDesc('id_forum')
-                        ->join('users','users.id','=','forums.id_user')
-                        ->select('forums.*','users.name','users.picture')
-                        ->get();
+        $data['forum'] = Forum::orderByDesc('id')->get();
         
         return view('components.card.forum-list', $data);
     }

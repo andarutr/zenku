@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Guru;
 
+use App\Models\Forum;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,10 +37,10 @@ class ForumController extends Controller
             'description' => 'required'
         ]);
 
-        $store = \DB::table('forums')->insert([
+        $store = Forum::create([
             'title_forum' => $req->title_forum,
             'description' => $req->description,
-            'id_user' => Auth::user()->id,
+            'user_id' => Auth::user()->id,
             'url_forum' => Str::slug($req->title_forum),
             'views_forum' => 1,
             'updated_at' => date('d F Y'),

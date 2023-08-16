@@ -30,13 +30,13 @@
                     @endif
                 </td>
                 <td>
-                  <a href="{{ route('guru.materi.show', ['materi' => $mtr->id_card]) }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                  <a href="{{ route('guru.materi.show', ['materi' => $mtr->id]) }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
                 </td>
                 <td>
-                  <a href="{{ route('guru.materi.edit', ['materi' => $mtr->id_card]) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                  <a href="{{ route('guru.materi.edit', ['materi' => $mtr->id]) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
                 </td>
                 <td>
-                    <form action="{{ route('guru.materi.destroy', ['materi' => $mtr->id_card]) }}" method="POST">@csrf @method('delete')
+                    <form action="{{ route('guru.materi.destroy', ['materi' => $mtr->id]) }}" method="POST">@csrf @method('delete')
                       <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')"><i class="fas fa-trash"></i></button>
                     </form>
                 </td>

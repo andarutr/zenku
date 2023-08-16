@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Guru;
 
+use App\Models\ContentForum;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -23,9 +24,9 @@ class ReplyController extends Controller
             'text_forum' => 'required'
         ]);
 
-        $store = \DB::table('content_forums')->insert([
-            'id_forum' => $id,
-            'id_user' => Auth::user()->id,
+        $store = ContentForum::create([
+            'forum_id' => $id,
+            'user_id' => Auth::user()->id,
             'text_forum' => $req->text_forum,
             'updated_at' => date('d F Y'),
             'created_at' => date('d F Y')
@@ -36,7 +37,7 @@ class ReplyController extends Controller
 
     public function destroy($id)
     {
-        $destroy = \DB::table('content_forums')->where('id_content_forum', $id)->delete();
+        $destroy = ContentForum::where('id', $id)->delete();
         
         return redirect()->back()->withToastSuccess('Berhasil menghapus komentar diskusi!');
     }
