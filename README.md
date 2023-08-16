@@ -1,66 +1,77 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
+# ZENKU
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img src="./public/img/zenku.png" width="150" />
 </p>
 
-## About Laravel
+## Deskripsi
+Zenku adalah website sosial media pembelajaran yang dibuat untuk mempermudah siswa dalam mengulas materi yang telah diajarkan oleh guru sebelumnya. Aplikasi ini memiliki fitur seperti sosial media pada umumnya : like dan comment. Selain itu penulis memberikan fitur tambahan seperti forum diskusi antar guru dengan siswa.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Role 
+- Admin [1]
+- Guru [2]
+- Siswa [3]
+- Penguji [4]
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Informasi Akun
+1. email: admin@zenku.com | pass: zenku123
+2. email: guru@zenku.com | pass: zenku123
+3. email: penguji@zenku.com | pass: zenku123
+3. email: andarutr@gmail.com | pass: zenku123
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Flow
+### Admin
+Admin dapat mengakses fitur berikut :
+- Dashboard
+- Kategori : CRUD pada kategori materi
+- Materi : hanya dapat melihat dan menghapus 
+- Like : hanya dapat melihat
+- Role : CRUD role akses
+- Komentar : dapat melihat dan menghapus (bila diperlukan)
+- Activity : Melihat aktifitas akun dan clear all data (bila diperlukan)
+- Menu Management : CRUD menu yang dapat diakses oleh role
+- Feedback : dapat melihat dan menghapus
+- Account : CRUD pada tabel user
+- Chat : chatting ke semua akun
 
-## Learning Laravel
+### Guru
+Guru dapat mengakses fitur berikut :
+- Dashboard
+- Materi : CRUD pada tabel materi
+- Like : melihat like berdasarkan materi yang ia buat
+- Komentar : melihat komentar berdasarkan materi yang ia buat
+- Forum : CRUD pada tabel forum
+- Chat : chatting ke semua akun
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Penguji
+Penguji dapat mengakses fitur berikut :
+- Dashboard
+- Materi : melakukan approval pada materi
+- Chat : chatting ke semua akun
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Siswa
+Siswa dapat mengakses fitur berikut :
+- Home
+- Materi : melihat semua materi atau materi berdasarkan kategori
+- Like : melakukan like dan menghapus like
+- Komentar : melakukan komentar dan menghapus komentar
+- Feedback : memberikan feedback
+- Forum : membuat forum dan membalas thread
+- Chat : chatting ke semua akun
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Note
+Catatan sebelum menggunakan Zenku buat database dengan nama **zenku** dan ketik perintah berikut pada terminal kamu :
+ - `composer install`
+ - `cp .env.example .env`
+ - `php artisan key:generate`
+ - `php artisan migrate`
+ - `php artisan db:seed`
 
-## Laravel Sponsors
+## Tech Stack
+<img src="https://github.com/andarutr/programmer-iconify/blob/main/icons/framework/bootstrap.png?raw=true" width="50px" />&nbsp;
+<img src="https://github.com/andarutr/programmer-iconify/blob/main/icons/framework/laravel.png?raw=true" width="50px" />&nbsp;
+<img src="https://github.com/andarutr/programmer-iconify/blob/main/icons/database/mysql.png?raw=true" width="50px" />&nbsp;
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Ingin Berkontribusi ?
+Silahkan fork telebih dahulu dan happy coding...
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+By : <a href="http://zyandaru.xyz" target="_blank">Andaru Triadi</a>
