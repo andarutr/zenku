@@ -22,7 +22,7 @@ class FeedbackController extends Controller
         ]);
 
         Feedback::create([
-            'id_user' => Auth::user()->id,
+            'user_id' => Auth::user()->id,
             'message' => $req->message,
         ]);
 

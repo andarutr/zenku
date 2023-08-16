@@ -25,8 +25,8 @@ class StaticPenguji extends Component
      */
     public function render()
     {
-        $data['guru_count'] = User::where('id_role', 2)->count();
-        $data['siswa_count'] = User::where('id_role', 3)->count();
+        $data['guru_count'] = User::where('role_id', 2)->count();
+        $data['siswa_count'] = User::where('role_id', 3)->count();
         $data['card_verif_count'] = Card::where('is_active', 'active')->count();
         $data['card_count'] = Card::count();
 

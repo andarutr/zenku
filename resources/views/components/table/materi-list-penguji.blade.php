@@ -1,6 +1,6 @@
 <div class="card mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Menu Management</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Materi</h6>
     </div>
     <div class="table-responsive p-3">
         <table class="table align-items-center table-flush" id="dataTable">
@@ -23,7 +23,7 @@
                     </a>
                 </td>
                 <td>{{ $mtr->title_card }}</td>
-                <td>{{ $mtr->name }}</td>
+                <td>{{ $mtr->user->name }}</td>
                 <td>
                     @if($mtr->is_active == 'active')
                     <span class="btn btn-sm btn-primary text-white">{{ $mtr->is_active }}</span>
@@ -32,10 +32,10 @@
                     @endif
                 </td>
                 <td>
-                    <a href="/penguji/materi/{{ $mtr->id_card }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                    <a href="/penguji/materi/{{ $mtr->id }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
                 </td>
                 <td>
-                    <form action="{{ route('penguji.materi.update', $mtr->id_card) }}" method="POST">@csrf @method('put')
+                    <form action="{{ route('penguji.materi.update', $mtr->id) }}" method="POST">@csrf @method('put')
                         <button class="btn btn-success" onclick="return confirm('Yakin ingin memperbarui status?')"><i class="fas fa-edit"></i></button>
                     </form>
                 </td>

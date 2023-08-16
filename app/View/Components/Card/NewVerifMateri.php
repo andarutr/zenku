@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Card;
 
-use App\Models\Views\VCard;
+use App\Models\Card;
 use Illuminate\View\Component;
 
 class NewVerifMateri extends Component
@@ -24,9 +24,9 @@ class NewVerifMateri extends Component
      */
     public function render()
     {
-        $data['materi'] = VCard::where('is_active', 'active')
-                        ->orderByDesc('id_card')
-                        ->limit(8)->get();
+        $data['materi'] = Card::where('is_active', 'active')
+                                ->orderByDesc('id')
+                                ->limit(8)->get();
 
         return view('components.card.new-verif-materi', $data);
     }

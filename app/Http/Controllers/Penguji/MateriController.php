@@ -24,14 +24,14 @@ class MateriController extends Controller
 
     public function update($id_card)
     {
-        $materi = Card::where('id_card', $id_card)->first();
+        $materi = Card::where('id', $id_card)->first();
 
         if($materi->is_active === 'not_active')
         {
             // Track Activity Account
             \Record::track('Melakukan Approve Materi '.$materi->title_card);
 
-            Card::where('id_card', $id_card)
+            Card::where('id', $id_card)
                 ->update([
                     'is_active' => 'active'
                 ]);
@@ -39,7 +39,7 @@ class MateriController extends Controller
             // Track Activity Account
             \Record::track('Membatalkan Approve Materi '.$materi->title_card);
 
-            Card::where('id_card', $id_card)
+            Card::where('id', $id_card)
                 ->update([
                     'is_active' => 'not_active'
                 ]);

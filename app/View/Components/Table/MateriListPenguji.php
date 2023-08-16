@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Table;
 
-use App\Models\Views\VCard;
+use App\Models\Card;
 use Illuminate\View\Component;
 
 class MateriListPenguji extends Component
@@ -24,7 +24,7 @@ class MateriListPenguji extends Component
      */
     public function render()
     {
-        $data['materi'] = VCard::orderByDesc('id_card')->get();
+        $data['materi'] = Card::orderByDesc('id')->get();
                         
         return view('components.table.materi-list-penguji', $data);
     }
