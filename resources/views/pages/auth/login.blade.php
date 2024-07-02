@@ -12,22 +12,19 @@
             </div>
             <!-- Form -->
             <div class="row">
-                <form class="col s12" action="{{ route('login') }}" method="POST">@csrf
                     <!-- email -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="email" type="text" class="validate" name="email" value="{{ old('email') }}" autocomplete="off">
+                            <input id="emailForm" type="text" autocomplete="off">
                             <label for="email">Email</label>
                         </div>
-                        @error('email')<p class="red-text text-darken-2">{{ $message }}</p>@enderror
                     </div>
                     <!-- pwd -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password" type="password" class="validate" name="password">
+                            <input id="passwordForm" type="password">
                             <label for="password">Password</label>
                         </div>
-                        @error('password')<p class="red-text text-darken-2">{{ $message }}</p>@enderror
                     </div>
                     <!-- pwd -->
                     <div class="row m-t-5">
@@ -42,10 +39,9 @@
                     <!-- pwd -->
                     <div class="row m-t-40">
                         <div class="col s12">
-                            <button class="btn-large w100 blue accent-4" type="submit">Login</button>
+                            <button class="btn-large w100 blue accent-4" id="btnLogin">Login</button>
                         </div>
                     </div>
-                </form>
             </div>
             <div class="center-align m-t-20 db">
                 Tidak memiliki akun? <a href="{{ route('register') }}">Daftar!</a><hr/>
@@ -55,3 +51,35 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+$(document).on("click", "#btnLogin", function(){
+    let emailForm = $("#emailForm").val();
+    let passwordForm = $("#passwordForm").val();
+
+    axios({
+        method: "POST",
+        url: "/login",
+        data: {
+            email: emailForm,
+            password: passwordForm
+        }
+    }).then(function(res){
+        let role = res.data.role;
+
+        if(role === 'Admin') {
+            window.location.href = "/admin/dashboard";
+        } else if(role === 'Guru') {
+            window.location.href = "/guru/dashboard";
+        } else if(role === 'User') {
+            window.location.href = "/user";
+        } else {
+            window.location.href = "/penguji/dashboard";
+        }
+    }).catch(function(error){
+        swal.fire("error", "Email dan password harus diisi!", "error");
+    });
+});
+</script>
+@endpush

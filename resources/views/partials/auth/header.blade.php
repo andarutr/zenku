@@ -5,3 +5,5 @@
 <title>Zenku - @yield('title')</title>
 <link href="/auth/dist/css/style.css" rel="stylesheet">
 <link href="/auth/dist/css/pages/authentication.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+@stack('styles')

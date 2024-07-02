@@ -38,15 +38,19 @@ class AuthenticatedSessionController extends Controller
         // Record to Activity
         \Record::track('Login');
         
-        if(Auth::user()->role->role == 'Admin'){
-            return redirect('/admin/dashboard')->withSuccess('Selamat Datang '.Auth::user()->name);
-        }elseif(Auth::user()->role->role == 'Guru'){
-            return redirect('/guru/dashboard')->withSuccess('Selamat Datang '.Auth::user()->name);
-        }elseif(Auth::user()->role->role == 'User'){
-            return redirect('/user')->withSuccess('Selamat Datang User!');
-        }else{
-            return redirect('/penguji/dashboard')->withSuccess('Selamat Datang '.Auth::user()->name);
-        }
+        return response()->json([
+            'role' => Auth::user()->role->role
+        ]);
+
+        // if(Auth::user()->role->role == 'Admin'){
+        //     return redirect('/admin/dashboard')->withSuccess('Selamat Datang '.Auth::user()->name);
+        // }elseif(Auth::user()->role->role == 'Guru'){
+        //     return redirect('/guru/dashboard')->withSuccess('Selamat Datang '.Auth::user()->name);
+        // }elseif(Auth::user()->role->role == 'User'){
+        //     return redirect('/user')->withSuccess('Selamat Datang User!');
+        // }else{
+        //     return redirect('/penguji/dashboard')->withSuccess('Selamat Datang '.Auth::user()->name);
+        // }
     }
 
     /**

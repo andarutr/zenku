@@ -12,42 +12,37 @@
             </div>
             <!-- Form -->
             <div class="row">
-                <form class="col s12" action="{{ route('register') }}" method="POST">@csrf
                     <!-- name -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="name" type="text" class="validate" name="name" value="{{ old('name') }}" autocomplete="off">
-                            <label for="name">Nama Lengkap</label>
+                            <input id="nameForm" type="text" autocomplete="off">
+                            <label>Nama Lengkap</label>
                         </div>
-                        @error('name')<p class="red-text text-darken-2">{{ $message }}</p>@enderror
                     </div>
                     <!-- email -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="email" type="text" class="validate" name="email" value="{{ old('email') }}" autocomplete="off">
-                            <label for="email">Email</label>
+                            <input id="emailForm" type="text" autocomplete="off">
+                            <label>Email</label>
                         </div>
-                        @error('email')<p class="red-text text-darken-2">{{ $message }}</p>@enderror
                     </div>
                     <!-- pwd -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password" type="password" class="validate" name="password">
-                            <label for="password">Password</label>
+                            <input id="passwordForm" type="password" name="password">
+                            <label>Password</label>
                         </div>
-                        @error('password')<p class="red-text text-darken-2">{{ $message }}</p>@enderror
                     </div>
                     <!-- pwd confirm -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password_confirmation" type="password" class="validate" name="password_confirmation">
-                            <label for="password_confirmation">Ulangi Password</label>
+                            <input type="password" id="confirmPasswordForm">
+                            <label>Ulangi Password</label>
                         </div>
-                        @error('password_confirmation')<p class="red-text text-darken-2">{{ $message }}</p>@enderror
                     </div>
                     <div class="row m-t-40">
                         <div class="col s12">
-                            <button class="btn-large w100 teal darken-2" type="submit">Daftar</button>
+                            <button class="btn-large w100 teal darken-2" id="btnRegister">Daftar</button>
                         </div>
                     </div>
                 </form>
@@ -60,3 +55,35 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+$(document).on("click", "#btnRegister", function(){
+    let nameForm = $("#nameForm").val();
+    let emailForm = $("#emailForm").val();
+    let passwordForm = $("#passwordForm").val();
+    let confirmPasswordForm = $("#confirmPasswordForm").val();
+    
+    if(confirmPasswordForm !== passwordForm)
+    {
+        Swal.fire("error", "Konfirmasi Password harus sama!", "error");
+        return;
+    }
+
+    axios({
+        method: "POST",
+        url: "/register",
+        data: {
+            name: nameForm,
+            email: emailForm,
+            password: passwordForm
+        }
+    }).then(function(res){
+        Swal.fire("success", "Berhasil membuat akun!", "success");
+        $("input").val('');
+    }).catch(function(error){
+        Swal.fire("error", "Pastikan form sudah terisi semua!", "error");
+    });
+});
+</script>
+@endpush
