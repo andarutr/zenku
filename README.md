@@ -7,21 +7,36 @@
 Zenku adalah website sosial media pembelajaran yang dibuat untuk mempermudah siswa dalam mengulas materi yang telah diajarkan oleh guru sebelumnya. Aplikasi ini memiliki fitur seperti sosial media pada umumnya : like dan comment. Selain itu penulis memberikan fitur tambahan seperti forum diskusi antar guru dengan siswa.
 
 ## Stack
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="40" alt="Bootstrap" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" height="40" alt="Laravel" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="MySQL" />
+<div align="left">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="40" alt="Bootstrap" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" height="40" alt="Laravel" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="MySQL" />
+</div>
 
 ## Role 
-- Admin [1]
-- Guru [2]
-- Siswa [3]
-- Penguji [4]
+<ol>
+    <li>Admin</li>
+    <li>Guru</li>
+    <li>User</li>
+    <li>Penguji</li>
+</ol>
 
-## Informasi Akun
-1. email: admin@zenku.com | pass: zenku123
-2. email: guru@zenku.com | pass: zenku123
-3. email: penguji@zenku.com | pass: zenku123
-3. email: andarutr@gmail.com | pass: zenku123
+## Account
+### Admin
+- Email: admin@zenku.com
+- Password: zenku123
+
+### Guru
+- Email: guru@zenku.com
+- Password: zenku123
+
+### Penguji
+- Email: penguji@zenku.com
+- Password: zenku123
+
+### User
+- Email: andarutr@zenku.com
+- Password: zenku123
 
 ## Flow
 ### Admin
