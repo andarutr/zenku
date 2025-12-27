@@ -6,6 +6,11 @@
 ## Deskripsi
 Zenku adalah website sosial media pembelajaran yang dibuat untuk mempermudah siswa dalam mengulas materi yang telah diajarkan oleh guru sebelumnya. Aplikasi ini memiliki fitur seperti sosial media pada umumnya : like dan comment. Selain itu penulis memberikan fitur tambahan seperti forum diskusi antar guru dengan siswa.
 
+## Stack
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="40" alt="Bootstrap" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" height="40" alt="Laravel" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="MySQL" />
+
 ## Role 
 - Admin [1]
 - Guru [2]
@@ -65,13 +70,3 @@ Catatan sebelum menggunakan Zenku buat database dengan nama **zenku** dan ketik 
  - `php artisan key:generate`
  - `php artisan migrate`
  - `php artisan db:seed`
-
-## Tech Stack
-<img src="https://github.com/andarutr/programmer-iconify/blob/main/icons/framework/bootstrap.png?raw=true" width="50px" />&nbsp;
-<img src="https://github.com/andarutr/programmer-iconify/blob/main/icons/framework/laravel.png?raw=true" width="50px" />&nbsp;
-<img src="https://github.com/andarutr/programmer-iconify/blob/main/icons/database/mysql.png?raw=true" width="50px" />&nbsp;
-
-## Ingin Berkontribusi ?
-Silahkan fork telebih dahulu dan happy coding...
-
-By : <a href="http://zyandaru.xyz" target="_blank">Andaru Triadi</a>
