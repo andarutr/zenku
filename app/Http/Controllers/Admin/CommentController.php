@@ -5,9 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\CommentService;
 
 class CommentController extends Controller
 {
+    protected $commentService;
+
+    public function __construct(CommentService $commentService)
+    {
+        $this->commentService = $commentService;
+    }
+
     public function index()
     {
         $data['menu'] = 'Komentar';
@@ -24,12 +32,8 @@ class CommentController extends Controller
 
     public function destroy($id)
     {
-        // Track Activity Account
-        $comment = Comment::where('id', $id)->first();
-                            
-        \Record::track('Menghapus Komentar '.$comment->name);
-
-        Comment::where('id', $id)->delete();
+        $this->commentService->destroy($id);
+        
         return redirect()->route('admin.komentar.index')->withToastSuccess('Berhasil menghapus komentar!');
     }
 }

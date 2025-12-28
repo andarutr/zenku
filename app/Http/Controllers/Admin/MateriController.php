@@ -5,9 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Card;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\CardService;
 
 class MateriController extends Controller
 {
+    protected $cardService;
+
+    public function __construct(CardService $cardService)
+    {
+        $this->cardService = $cardService;
+    }
+
     public function index()
     {
         $data['menu'] = 'Materi';
@@ -23,12 +31,8 @@ class MateriController extends Controller
 
     public function destroy($id)
     {
-        // Track Activity Account
-        $materi = Card::where('id', $id)->first();
-                        
-        \Record::track('Menghapus Materi - '.$materi->name.' ('.$materi->title_card.')');
-
-        Card::where('id', $id)->delete();
+        $this->cardService->destroy($id);
+        
         return redirect()->route('admin.materi.index')->withToastSuccess('Berhasil menghapus data!');
     }
 }
