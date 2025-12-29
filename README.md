@@ -12,14 +12,25 @@ Zenku adalah website sosial media pembelajaran yang dibuat untuk mempermudah sis
 <img src="document/ERD ZENKU.jpg" width="540">
 
 ## Flowchart
-On Progress
+<img src="document/Flowchart Zenku.jpg" width="540">
+<ul>
+    <li>Guru upload video di youtube atau webstreaming lainnya.</li>
+    <li>Guru buat materi dan menunggu materi nya harus di approval oleh penguji dulu.</li>
+    <li>Penguji berhak melakukan reject apabila materi tidak sesuai dengan pedoman.</li>
+    <li>Penguji melakukan approve materi.</li>
+    <li>User dapat melihat materi yang telah di upload oleh guru.</li>
+    <li>User dapat memberikan komentar.</li>
+    <li>User dapat memberikan like.</li>
+    <li>User dapat secara pribadi melakukan chat dengan guru.</li>
+    <li>Admin memiliki full access seperti manage kategori, materi, likes, role access, komentar, aktifitas, menu, feedback dan akun.</li>
+</ul>
 
 ## Role 
 <ol>
-    <li>Admin</li>
     <li>Guru</li>
-    <li>User</li>
     <li>Penguji</li>
+    <li>User</li>
+    <li>Admin</li>
 </ol>
 
 ## Account
@@ -54,7 +65,16 @@ Catatan sebelum menggunakan Zenku buat database dengan nama **zenku** dan ketik 
 - Fontawesome
 
  ## Feature
-On Progress
+- Create Materi Pelajaran
+- Approval Materi Pelajaran
+- Management Likes
+- Management Comment
+- Forum
+- Personal Chat
+- Management Feedback
+- Pantau Activity
+- Management Menu
+- Management Role Access
 
  ## Screenshot
 On Progress
