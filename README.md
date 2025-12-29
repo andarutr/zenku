@@ -77,4 +77,12 @@ Catatan sebelum menggunakan Zenku buat database dengan nama **zenku** dan ketik 
 - Management Role Access
 
  ## Screenshot
-On Progress
+<img src="document/screenshot/zenku_1.png" width="540">
+<img src="document/screenshot/zenku_2.png" width="540">
+<img src="document/screenshot/zenku_3.png" width="540">
+<img src="document/screenshot/zenku_4.png" width="540">
+<img src="document/screenshot/zenku_5.png" width="540">
+<img src="document/screenshot/zenku_6.png" width="540">
+<img src="document/screenshot/zenku_7.png" width="540">
+<img src="document/screenshot/zenku_8.png" width="540">
+<img src="document/screenshot/zenku_9.png" width="540">
