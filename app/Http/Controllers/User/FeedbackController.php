@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\User\StoreFeedbackRequest;
 use App\Services\FeedbackService;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Feedback\StoreFeedbackRequest;
 
 class FeedbackController extends Controller
 {

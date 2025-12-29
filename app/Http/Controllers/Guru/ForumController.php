@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Guru;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\User\StoreForumRequest;
 use App\Services\ForumService;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Forum\StoreForumRequest;
 
 class ForumController extends Controller
 {

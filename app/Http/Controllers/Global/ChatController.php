@@ -6,11 +6,11 @@ use Request as Req;
 use App\Models\Chat;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\User\StoreChatRequest;
-use App\Http\Requests\User\StoreMessageRequest;
-use App\Services\ChatQueryService;
 use App\Services\ChatService;
+use App\Services\ChatQueryService;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Chat\StoreChatRequest;
+use App\Http\Requests\Chat\StoreMessageRequest;
 
 class ChatController extends Controller
 {

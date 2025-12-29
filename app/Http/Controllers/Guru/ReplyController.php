@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Guru;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\StoreContentForumRequest;
 use App\Services\ContentForumService;
+use App\Http\Requests\ContentForum\StoreContentForumRequest;
 
 class ReplyController extends Controller
 {

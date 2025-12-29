@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\User\StoreCommentRequest;
 use App\Services\CommentService;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Comment\StoreCommentRequest;
 
 class CommentController extends Controller
 {
