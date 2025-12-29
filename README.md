@@ -48,7 +48,10 @@ Catatan sebelum menggunakan Zenku buat database dengan nama **zenku** dan ketik 
  - `php artisan db:seed`
 
  ## Plugin / Libraries
-On Progress
+- Axios
+- Sweetalert2
+- Toastr.js
+- Fontawesome
 
  ## Feature
 On Progress

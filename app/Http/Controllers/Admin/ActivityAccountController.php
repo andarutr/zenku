@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Activity;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\ActivityService;
 

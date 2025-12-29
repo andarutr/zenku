@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Services\CategoryService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;

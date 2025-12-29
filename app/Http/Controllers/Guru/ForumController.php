@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers\Guru;
 
-use App\Models\Forum;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreForumRequest;
 use App\Services\ForumService;
-use Illuminate\Support\Facades\Auth;
 
 class ForumController extends Controller
 {

@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\ContentForum;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreContentForumRequest;
 use App\Services\ContentForumService;
-use Illuminate\Support\Facades\Auth;
 
 class ReplyController extends Controller
 {

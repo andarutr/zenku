@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Activity;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\ActivityService;
-use Illuminate\Support\Facades\Auth;
 
 class ActivityAccountController extends Controller
 {

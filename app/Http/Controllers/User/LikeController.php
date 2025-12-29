@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Card;
-use App\Models\Like;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\LikeService;
-use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {

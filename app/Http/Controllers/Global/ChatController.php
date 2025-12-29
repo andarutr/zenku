@@ -5,14 +5,12 @@ namespace App\Http\Controllers\Global;
 use Request as Req;
 use App\Models\Chat;
 use App\Models\User;
-use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreChatRequest;
 use App\Http\Requests\User\StoreMessageRequest;
 use App\Services\ChatQueryService;
 use App\Services\ChatService;
-use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
