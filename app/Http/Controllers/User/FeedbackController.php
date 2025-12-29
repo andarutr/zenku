@@ -5,26 +5,28 @@ namespace App\Http\Controllers\User;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreFeedbackRequest;
+use App\Services\FeedbackService;
 use Illuminate\Support\Facades\Auth;
 
 class FeedbackController extends Controller
 {
+    protected $feedbackService;
+
+    public function __construct(FeedbackService $feedbackService)
+    {
+        $this->feedbackService = $feedbackService;
+    }
+
     public function index()
     {
         $data['menu'] = 'Feedback';
         return view('pages.user.feedback.index', $data);
     }
 
-    public function store(Request $req)
+    public function store(StoreFeedbackRequest $req)
     {
-        $this->validate($req,[
-            'message' => 'required'
-        ]);
-
-        Feedback::create([
-            'user_id' => Auth::user()->id,
-            'message' => $req->message,
-        ]);
+        $this->feedbackService->store($req->all());
 
         return redirect()->back()->withToastSuccess('Berhasil mengisi form feedback!');
     }

@@ -8,24 +8,29 @@ use App\Models\User;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreChatRequest;
+use App\Http\Requests\User\StoreMessageRequest;
+use App\Services\ChatQueryService;
+use App\Services\ChatService;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
+    protected $chatService;
+    protected $chatQueryService;
+
+    public function __construct(ChatService $chatService, ChatQueryService $chatQueryService)
+    {
+        $this->chatService = $chatService;
+        $this->chatQueryService = $chatQueryService;
+    }
+
     public function index()
     {
         $data['menu'] = 'Chat';
         $data['users'] = User::all();
-        $data['chat_from_me'] = Chat::orderByDesc('id')
-                            ->where('user_id', Auth::user()->id)
-                            ->join('users','users.id','=','chats.linked_user')
-                            ->select('chats.*','users.name','users.picture','users.id as is_online')
-                            ->get();
-        $data['chat_from_other'] = Chat::orderByDesc('id')
-                                ->where('linked_user', Auth::user()->id)
-                                ->join('users','users.id','=','chats.user_id')
-                                ->select('chats.*','users.name','users.picture','users.id as is_online')
-                                ->get();
+        $data['chat_from_me'] = $this->chatQueryService->chat_from_me();
+        $data['chat_from_other'] = $this->chatQueryService->chat_from_other();
                                 
         return view('pages.global.chat.index', $data);
     }
@@ -39,20 +44,9 @@ class ChatController extends Controller
         return view('pages.global.chat.create_topic', $data);            
     }
 
-    public function store_topic(Request $req)
+    public function store_topic(StoreChatRequest $req)
     {
-        $this->validate($req, [
-            'topic_chat' => 'required'
-        ]);
-
-        $store = Chat::create([
-                        'session_chat' => $req->session_chat,
-                        'user_id' => Auth::user()->id,
-                        'topic_chat' => $req->topic_chat,
-                        'linked_user' => $req->linked_user,
-                        'created_at' => now(),
-                        'updated_at' => now()
-                    ]);
+        $this->chatService->store($req->all());
                     
         return redirect('/'.Req::segment(1).'/chat');
     }
@@ -62,16 +56,8 @@ class ChatController extends Controller
         $data['menu'] = 'Chat';
         $data['status_chat'] = 'From Me';
         $data['status_user'] = Chat::where('session_chat', $session_chat)->first();
-        $data['user'] = Chat::where('session_chat', $session_chat)
-                            ->join('users','users.id','=','chats.linked_user')
-                            ->join('roles','roles.id','=','users.role_id')
-                            ->select('users.name','users.picture','chats.*','roles.role')
-                            ->first();
-        $data['messages'] = Message::orderBy('created_at','asc')
-                            ->where('session_chat', $session_chat)
-                            ->join('users','users.id','=','messages.user_id')
-                            ->select('users.name','users.picture','messages.*')
-                            ->get();
+        $data['user'] = $this->chatQueryService->chat_user_linked($session_chat);
+        $data['messages'] = $this->chatQueryService->chat_message($session_chat);
         
         return view('pages.global.chat.chat_session', $data);
     }
@@ -81,33 +67,15 @@ class ChatController extends Controller
         $data['menu'] = 'Chat';
         $data['status_chat'] = 'From You';
         $data['status_user'] = Chat::where('session_chat', $session_chat)->first();
-        $data['user'] = Chat::where('session_chat', $session_chat)
-                        ->join('users','users.id','=','chats.user_id')
-                        ->join('roles','roles.id','=','users.role_id')
-                        ->select('users.name','users.picture','chats.*','roles.role')
-                        ->first();
-        $data['messages'] = Message::orderBy('created_at','asc')
-                            ->where('session_chat', $session_chat)
-                            ->join('users','users.id','=','messages.user_id')
-                            ->select('users.name','users.picture','messages.*')
-                            ->get();
+        $data['user'] = $this->chatQueryService->chat_user($session_chat);
+        $data['messages'] = $this->chatQueryService->chat_message($session_chat);
         
         return view('pages.global.chat.chat_session', $data);
     }
 
-    public function store_chat(Request $req)
+    public function store_chat(StoreMessageRequest $req)
     {
-        $this->validate($req, [
-            'message' => 'required'
-        ]);
-
-        $store_message = Message::create([
-                                'user_id' => Auth::user()->id,
-                                'session_chat' => $req->session_chat,
-                                'message' => $req->message,
-                                'updated_at' => now(),
-                                'created_at' => now()
-                            ]);
+        $this->chatService->store_message($req->all());
 
         return redirect()->back();
     }

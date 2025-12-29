@@ -6,10 +6,18 @@ use App\Models\Card;
 use App\Models\Like;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\LikeService;
 use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
+    protected $likeService;
+
+    public function __construct(LikeService $likeService)
+    {
+        $this->likeService = $likeService;
+    }
+
     public function index()
     {
         $data['menu'] = 'Like';
@@ -18,28 +26,14 @@ class LikeController extends Controller
 
     public function store($id_card)
     {
-        // Track Activity Account
-        $materi = Card::where('id', $id_card)->first();
-        \Record::track('Menyukai Materi '.$materi->title_card);
-        
-        Like::firstOrCreate([
-            'card_id' => $id_card,
-            'user_id' => Auth::user()->id,
-            'author_id' => $materi->user_id
-        ]);
+        $this->likeService->store($id_card);
         
         return redirect()->back()->withToastSuccess('Berhasil Like Materi!');
     }
 
     public function destroy($id_like)
     {
-        // Track Activity Account
-        $materi = Like::where('id_like', $id_like)
-                            ->first();
-                            
-        \Record::track('Menghapus Like Pada Materi '.$materi->title_card);
-
-        Like::where(['id_like' => $id_like, 'id_user' => Auth::user()->id])->delete();
+        $this->likeService->destroy($id_like);
         
         return redirect()->back()->withToastSuccess('Berhasil menghapus like!');
     }

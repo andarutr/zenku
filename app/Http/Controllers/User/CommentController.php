@@ -6,35 +6,32 @@ use App\Models\Card;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreCommentRequest;
+use App\Services\CommentService;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
+    protected $commentService;
+
+    public function __construct(CommentService $commentService)
+    {
+        $this->commentService = $commentService;
+    }
+
     public function index()
     {
         $data['menu'] = 'Comment';
         return view('pages.user.comment.index', $data);
     }
 
-    public function store(Request $req, $id_card)
+    public function store(StoreCommentRequest $req, $id_card)
     {
-        $this->validate($req, [
-            'comment' => 'required'
-        ]);
-
-        // Track Activity Account
-        $materi = Card::where('id', $id_card)->first();
-        \Record::track('Memberikan Komentar Pada Materi '.$materi->title_card);
-
-        Comment::create([
-            'user_id' => Auth::user()->id,
-            'card_id' => $id_card,
-            'author_id' => $materi->user_id,
-            'comment' => $req->comment
-        ]);
+        $this->commentService->store($id_card, $req->all());
 
         return redirect()->back()->withToastSuccess('Berhasil menambahkan komentar!');
     }
+
     public function edit(Request $req, $id_comment)
     {
         $data['menu'] = 'Comment';
@@ -43,30 +40,17 @@ class CommentController extends Controller
         return view('pages.user.comment.update', $data);
     }
 
-    public function update(Request $req, $id_comment)
+    public function update(StoreCommentRequest $req, $id_comment)
     {
-        $this->validate($req, [
-            'comment' => 'required'
-        ]);
-
-        Comment::where('id_comment', $id_comment)
-                ->update([
-                    'comment' => $req->comment,
-                    'updated_at' => now()
-                ]);
+        $this->commentService->update($id_comment, $req->all());
         
         return redirect()->route('user.comment.index')->withToastSuccess('Berhasil memperbarui komentar!');
     }
 
     public function destroy($id_comment)
     {
-        // Track Activity Account
-        $materi = Comment::where('id_comment', $id_comment)
-                            ->first();
-                            
-        \Record::track('Menghapus Komentar Pada Materi '.$materi->title_card);
-
-        Comment::where('id_comment', $id_comment)->delete();
+        $this->commentService->destroy_by_id_comment($id_comment);
+        
         return redirect()->route('user.comment.index')->withToastSuccess('Berhasil menghapus komentar!');
     }
 }

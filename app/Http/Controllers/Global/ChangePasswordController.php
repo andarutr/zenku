@@ -7,9 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PasswordRequest;
+use App\Services\UserService;
 
 class ChangePasswordController extends Controller
 {
+    protected $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     public function index()
     {
         $data['menu'] = 'Ganti Password';
@@ -18,22 +26,8 @@ class ChangePasswordController extends Controller
 
     public function update(PasswordRequest $req)
     {
-       $req->validated();
+        $id = Auth::user()->id;
 
-        if(auth()->attempt(['email' => Auth::user()->email, 'password' => $req->old_password]))
-        {
-            // Track Activity Account
-            \Record::track('Memperbarui Password');
-            
-            User::where('id', Auth::user()->id)
-                    ->update([
-                        'password' => \Hash::make($req->new_password),
-                        'updated_at' => now()
-                    ]);
-            
-            return redirect()->back()->withSuccess('Berhasil memperbarui password!');
-        }else{
-            return redirect()->back()->withWarning('Password anda salah!');
-        }
+        $this->userService->changePassword($id, $req->all());
     }
 }

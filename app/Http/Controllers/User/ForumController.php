@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Forum;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\User\StoreForumRequest;
+use App\Services\ForumService;
 
 class ForumController extends Controller
 {
+    protected $forumService;
+
+    public function __construct(ForumService $forumService)
+    {
+        $this->forumService = $forumService;
+    }
+
     public function index()
     {
         $data['menu'] = 'Forum';
@@ -30,22 +35,9 @@ class ForumController extends Controller
         return view('pages.user.forum.create', $data);
     }
 
-    public function store(Request $req)
+    public function store(StoreForumRequest $req)
     {
-        $this->validate($req, [
-            'title_forum' => 'required|unique:forums',
-            'description' => 'required'
-        ]);
-
-        $store = Forum::create([
-            'title_forum' => $req->title_forum,
-            'description' => $req->description,
-            'user_id' => Auth::user()->id,
-            'url_forum' => Str::slug($req->title_forum),
-            'views_forum' => 1,
-            'updated_at' => date('d F Y'),
-            'created_at' => date('d F Y')
-        ]);
+        $this->forumService->store($req->all());
 
         return redirect()->route('user.forum.index')->withToastSuccess('Berhasil membuat forum diskusi!');
     }
